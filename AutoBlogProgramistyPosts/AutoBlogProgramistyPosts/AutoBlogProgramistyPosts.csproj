@@ -46,7 +46,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Post.cs" />
+    <Compile Include="IPostParser.cs" />
+    <Compile Include="NewsPostParser.cs" />
+    <Compile Include="PostJSON.cs" />
     <Compile Include="PostsSender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

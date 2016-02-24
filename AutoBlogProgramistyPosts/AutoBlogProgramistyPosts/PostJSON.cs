@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace AutoBlogProgramistyPosts
 {
-    public class Post
+    public class PostJSON
     {
         public string HtmlMsg { get; set; }
+
         public IEnumerable<string> Tags { get; set; }
+
         public IEnumerable<string> Category { get; set; }
-        public string ImgUrl { get; set; }
+
+        public int ImgID { get; set; }
     }
 }
