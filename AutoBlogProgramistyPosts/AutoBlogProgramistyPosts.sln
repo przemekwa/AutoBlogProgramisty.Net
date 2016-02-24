@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoBlogProgramistyPosts", "AutoBlogProgramistyPosts\AutoBlogProgramistyPosts.csproj", "{FF652B62-2248-4F8E-BCBD-F9887A073D63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoBlogProgramistyPostsTests", "AutoBlogProgramistyPostsTests\AutoBlogProgramistyPostsTests.csproj", "{8A4DF33E-7163-4607-B6EC-85666E1DA4D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF652B62-2248-4F8E-BCBD-F9887A073D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF652B62-2248-4F8E-BCBD-F9887A073D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF652B62-2248-4F8E-BCBD-F9887A073D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF652B62-2248-4F8E-BCBD-F9887A073D63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A4DF33E-7163-4607-B6EC-85666E1DA4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A4DF33E-7163-4607-B6EC-85666E1DA4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A4DF33E-7163-4607-B6EC-85666E1DA4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A4DF33E-7163-4607-B6EC-85666E1DA4D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
