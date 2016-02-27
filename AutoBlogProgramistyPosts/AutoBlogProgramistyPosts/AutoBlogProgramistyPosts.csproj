@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IPostParser.cs" />
+    <Compile Include="News.cs" />
     <Compile Include="NewsPostParser.cs" />
     <Compile Include="PostJSON.cs" />
     <Compile Include="PostsSender.cs" />
