@@ -10,7 +10,7 @@ namespace AutoBlogProgramistyPosts
 {
     public class NewsFileParser : IPostParser
     {
-        public const string HTMLNEWSBODYTEMPLATE = "<ul><li><h3>{%HEADER%}</h3></li></ul><blockquote><a href=\"{%MSG%}\">{%MSG%}</a></blockquote>";
+        public const string HTMLNEWSBODYTEMPLATE = "<ul><li><h3>{0}</h3></li></ul>{1}<blockquote><a href=\"{2}\">{2}</a></blockquote>";
 
         public FileInfo FileInfo { get; set; }
 
@@ -37,7 +37,18 @@ namespace AutoBlogProgramistyPosts
         {
             var result = new StringBuilder();
 
-                return string.Empty;
+            result.Append(news.Header);
+
+            var moreSign = "<!--more-->";
+
+            foreach (var n in news.LinksList)
+            {
+                result.AppendFormat(HTMLNEWSBODYTEMPLATE, n.Header, moreSign, n.Url);
+
+                moreSign = string.Empty;
+            }
+
+            return result.ToString();
         }
 
         public NewsDto GetNewsFromFile()
