@@ -2,8 +2,9 @@
 
 namespace AutoBlogProgramistyPosts
 {
-    public interface IPostParser
+    public interface IPost
     {
+        Term[] TermTags { get; set; }
         Post GetPost();
     }
 }

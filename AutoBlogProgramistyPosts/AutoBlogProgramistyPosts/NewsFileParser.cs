@@ -1,18 +1,23 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WordPressSharp.Models;
 
 namespace AutoBlogProgramistyPosts
 {
-    public class NewsFileParser : IPostParser
+    public class NewsFileParser : IPost
     {
         public const string HTMLNEWSBODYTEMPLATE = "<ul><li><h3>{0}</h3></li></ul>{1}<blockquote><a href=\"{2}\">{2}</a></blockquote>";
 
         public FileInfo FileInfo { get; set; }
+
+        public Term[] TermTags { get; set; }
+               
 
         public NewsFileParser(string fileName)
         {
@@ -61,12 +66,38 @@ namespace AutoBlogProgramistyPosts
 
             foreach (var n in news.LinksList)
             {
+                var headerWitOutTags = this.ClearTags(n.Header);
+
                 result.AppendFormat(HTMLNEWSBODYTEMPLATE, n.Header, moreSign, n.Url);
 
                 moreSign = string.Empty;
             }
 
             return result.ToString();
+        }
+
+        private string ClearTags(string header)
+        {
+            //var regExp = new Regex("\\[.*\\]");
+
+            //var result = regExp.Match(header).Value;
+
+            //if (string.IsNullOrEmpty(result))
+            //{
+            //    return header;
+            //}
+
+            //var terms = TermTags.Where(s => s.Slug.ToLower() == result.ToLower()).FirstOrDefault();
+
+            ////if (terms != null)
+            ////{
+
+            ////}
+
+
+
+            return header;
+
         }
 
         public NewsDto GetNewsFromFile()
