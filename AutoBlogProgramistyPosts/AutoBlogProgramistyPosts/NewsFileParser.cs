@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,17 +19,35 @@ namespace AutoBlogProgramistyPosts
             this.FileInfo = new FileInfo(fileName);
         }
 
+
         public Post GetPost()
         {
-            var result = new Post();
-
-            var news = this.GetNewsFromFile();
-
-            if (news == null)
+            var result = new Post
             {
-                return null;
-            }
+                Author = "1",
+                PostType = "post",
+                Title = string.Format("News-y programistyczne {0}", DateTime.Now.ToString("dd-MM-yyyy")), 
+                Content = this.GetHtmlBody(this.GetNewsFromFile()),
+                PublishDateTime = DateTime.Now,
+                Status = "publish",
+                FeaturedImageId = "613",
+                Terms = new Term[] {
+                    new Term
+                    {
+                        Count = 34,
+                        Id ="40",
+                        Name ="News",
+                        Parent = "0",
+                        Slug = "news",
+                        Taxonomy = "category",
+                        TermGroup = "0",
+                        TermTaxonomyId = "40"
+                    } }
+            };
 
+#if DEBUG
+            result.PublishDateTime = DateTime.Now.AddDays(2);
+#endif
             return result; 
         }
 

@@ -8,50 +8,40 @@ using WordPressSharp.Models;
 
 namespace AutoBlogProgramistyPosts
 {
-    public class PostsSender
+    public class Publisher
     {
         public readonly WordPressClient wordPressClient;
+        public readonly IPostParser PostParser;
 
-        public PostsSender()
+        public Publisher(IPostParser postParser)
         {
+            this.PostParser = postParser;
             this.wordPressClient = new WordPressClient();
         }
 
-        public void GetPosts()
+        public void Get()
         {
             using (wordPressClient)
             {
                 var test = wordPressClient.GetPosts(null);
 
                 var test2 = wordPressClient.GetMediaItems(null);
+
+                var id = test2.Where(g => g.Link.Contains("main_news_art_2.png")).First();
+
             }
         }
 
-        public void DeletePost(string id)
+        public void Delete(string id)
         {
 
-
-
         }
-        public string PostPost(PostJSON pos1t)
+
+        public string Publish()
         {
             using (wordPressClient)
             {
-                var post = new Post
-                {
-                    PostType = "post", // "post" or "page"
-                    Title = "News-y programistyczne 24-02-2016",
-                    Content = "Test",
-                    PublishDateTime = DateTime.Now.AddDays(2),
-                    Status = "publish" // "draft" or "publish"
-
-                };
-
-                post.FeaturedImageId = "1006";
-                
-
-                    
-                return wordPressClient.NewPost(post);
+                return wordPressClient.NewPost(this.PostParser.GetPost());
             }
         }
     }

@@ -49,7 +49,7 @@
     <Compile Include="AppConfgChange.cs" />
     <Compile Include="NewsFileParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="PublisherTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
