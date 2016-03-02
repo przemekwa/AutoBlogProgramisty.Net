@@ -8,8 +8,6 @@ using WordPressSharp.Models;
 
 namespace AutoBlogProgramistyPosts
 {
-   
-
     public class PostsSender
     {
         public readonly WordPressClient wordPressClient;

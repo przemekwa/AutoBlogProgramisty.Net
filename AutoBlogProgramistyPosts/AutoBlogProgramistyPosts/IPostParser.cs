@@ -4,6 +4,6 @@ namespace AutoBlogProgramistyPosts
 {
     public interface IPostParser
     {
-        Post GetPost(string fileName);
+        Post GetPost();
     }
 }

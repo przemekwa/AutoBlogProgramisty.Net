@@ -31,7 +31,6 @@ namespace AutoBlogProgramistyPostsTests
                 var awp = new PostsSender();
 
                 Assert.AreEqual(string.Empty, awp.PostPost(null));
-
             }
         }
 
@@ -43,8 +42,6 @@ namespace AutoBlogProgramistyPostsTests
                 var awp = new PostsSender();
 
                 awp.GetPosts();
-              
-
             }
         }
     }

@@ -8,11 +8,11 @@ namespace AutoBlogProgramistyPosts
 {
     public class NewsDto
     {
-       public string Header { get; set; }
-        public List<LinkDto> Links { get; set; }
+        public string Header { get; set; }
+        public List<LinksDto> LinksList { get; set; }
     }
 
-    public class LinkDto
+    public class LinksDto
     {
         public string Header { get; set; }
         public string Url { get; set; }
