@@ -40,7 +40,7 @@ namespace AutoBlogProgramistyPostsTests
             File.Delete(this.FileName);
         }
 
-        [Test]
+        //[Test]
         public void Publish_News_Post_From_File_Test()
         {
             using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPosts\bin\Debug\AutoBlogProgramistyPosts.dll.config"))
@@ -51,7 +51,7 @@ namespace AutoBlogProgramistyPostsTests
             }
         }
 
-        [Test]
+        //[Test]
         public void Get_Posts_Test()
         {
             using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPosts\bin\Debug\AutoBlogProgramistyPosts.dll.config"))

@@ -17,26 +17,14 @@ namespace AutoBlogProgramistyPosts
         public FileInfo FileInfo { get; set; }
 
         public Term[] TermTags { get; set; }
-               
 
+        public List<Term> Tags { get; set; } 
+               
         public NewsFileParser(string fileName)
         {
             this.FileInfo = new FileInfo(fileName);
-        }
 
-
-        public Post GetPost()
-        {
-            var result = new Post
-            {
-                Author = "1",
-                PostType = "post",
-                Title = string.Format("News-y programistyczne {0}", DateTime.Now.ToString("dd-MM-yyyy")), 
-                Content = this.GetHtmlBody(this.GetNewsFromFile()),
-                PublishDateTime = DateTime.Now,
-                Status = "publish",
-                FeaturedImageId = "613",
-                Terms = new Term[] {
+            this.Tags = new List<Term> {
                     new Term
                     {
                         Count = 34,
@@ -47,7 +35,21 @@ namespace AutoBlogProgramistyPosts
                         Taxonomy = "category",
                         TermGroup = "0",
                         TermTaxonomyId = "40"
-                    } }
+                    } };
+        }
+
+        public Post GetPost()
+        {
+            var result = new Post
+            {
+                Author = "1",
+                PostType = "post",
+                Title = string.Format("News-y programistyczne {0}", DateTime.Now.ToString("dd-MM-yyyy")),
+                Content = this.GetHtmlBody(this.GetNewsFromFile()),
+                PublishDateTime = DateTime.Now,
+                Status = "publish",
+                FeaturedImageId = "613",
+                Terms = this.Tags.ToArray() 
             };
 
 #if DEBUG
@@ -66,9 +68,9 @@ namespace AutoBlogProgramistyPosts
 
             foreach (var n in news.LinksList)
             {
-                var headerWitOutTags = this.ClearTags(n.Header);
+                this.AddTags(n.Header);
 
-                result.AppendFormat(HTMLNEWSBODYTEMPLATE, n.Header, moreSign, n.Url);
+                result.AppendFormat(HTMLNEWSBODYTEMPLATE, this.RemoveTags(n.Header), moreSign, n.Url);
 
                 moreSign = string.Empty;
             }
@@ -76,27 +78,30 @@ namespace AutoBlogProgramistyPosts
             return result.ToString();
         }
 
-        private string ClearTags(string header)
+        public string RemoveTags(string header)
         {
-            //var regExp = new Regex("\\[.*\\]");
-
-            //var result = regExp.Match(header).Value;
-
-            //if (string.IsNullOrEmpty(result))
-            //{
-            //    return header;
-            //}
-
-            //var terms = TermTags.Where(s => s.Slug.ToLower() == result.ToLower()).FirstOrDefault();
-
-            ////if (terms != null)
-            ////{
-
-            ////}
-
-
-
             return header;
+        }
+
+        public void AddTags(string header)
+        {
+            var regExp = new Regex("\\[.*\\]");
+
+            var result = regExp.Match(header);
+
+            foreach (Capture item in result.Captures)
+            {
+                var existTerm = TermTags.Where(s => s.Slug.ToLower() == item.Value.ToLower()).FirstOrDefault();
+
+                if (existTerm == null)
+                {
+                    var maxId = this.TermTags.OrderBy(s => s.Id).Last();
+                }
+                else
+                {
+                    this.Tags.Add(existTerm);
+                }
+            }
 
         }
 

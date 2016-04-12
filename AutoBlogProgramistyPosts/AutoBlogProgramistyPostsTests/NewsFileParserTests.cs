@@ -22,7 +22,7 @@ namespace AutoBlogProgramistyPostsTests
 
             this.FileContent = new[] {
                 "Czas na kolejną porcja ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej. Zapraszam.",
-                "Koszty tworzenia komentarzy",
+                "Koszty tworzenia komentarzy[komentarze]",
                 "https://jaxenter.com/costs-and-benefits-of-comments-124166.html",
                 "SOLID na potocznych przykładach",
                 "http://www.daedtech.com/solid-principles-real-life",
@@ -61,6 +61,16 @@ namespace AutoBlogProgramistyPostsTests
             var result = fileParser.GetHtmlBody(fileParser.GetNewsFromFile());
 
             Assert.AreEqual(result, "Czas na kolejną porcja ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej. Zapraszam.<ul><li><h3>Koszty tworzenia komentarzy</h3></li></ul><!--more--><blockquote><a href=\"https://jaxenter.com/costs-and-benefits-of-comments-124166.html\">https://jaxenter.com/costs-and-benefits-of-comments-124166.html</a></blockquote><ul><li><h3>SOLID na potocznych przykładach</h3></li></ul><blockquote><a href=\"http://www.daedtech.com/solid-principles-real-life\">http://www.daedtech.com/solid-principles-real-life</a></blockquote><ul><li><h3>Co by tu się pouczyć nowego w 2016 roku?</h3></li></ul><blockquote><a href=\"http://www.infoworld.com/article/3038679/application-development/the-13-developer-skills-you-need-to-master-now.html\">http://www.infoworld.com/article/3038679/application-development/the-13-developer-skills-you-need-to-master-now.html</a></blockquote>");
+        }
+
+        [Test]
+        public void Parse_Tags_From_File()
+        {
+            var fileParser = new NewsFileParser(this.FileName);
+
+            fileParser.AddTags(this.FileContent[1]);
+
+            Assert.IsTrue(fileParser.Tags.Any(t=>t.Name.Equals("komentarze")));
         }
     }
 }
