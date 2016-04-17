@@ -14,13 +14,17 @@ namespace AutoBlogProgramistyPosts
 
         public readonly IPost PostParser;
 
+        private Term[] TermTags;
+
         public Publisher(IPost postParser)
         {
             this.PostParser = postParser;
 
             wordPressClient = new WordPressClient();
 
-            this.PostParser.TermTags = wordPressClient.GetTerms("post_tag", null);
+            this.TermTags = wordPressClient.GetTerms("post_tag", null);
+
+            this.PostParser.TermTags = this.TermTags;
         }
         
         public void Get()
@@ -41,7 +45,17 @@ namespace AutoBlogProgramistyPosts
         {
             using (wordPressClient)
             {
-                return wordPressClient.NewPost(this.PostParser.GetPost());
+                var post = this.PostParser.GetPost();
+
+                var listTagsToAdd = post.Terms.Except(this.TermTags.Where(c=>c.Taxonomy == "post_tag"));
+
+                foreach (var item in listTagsToAdd.Where(c=>c.Taxonomy == "post_tag"))
+                {
+                    this.wordPressClient.NewTerm(item);
+                    post.Terms.ToList().Remove(item);
+                }
+
+                return wordPressClient.NewPost(post);
             }
         }
     }

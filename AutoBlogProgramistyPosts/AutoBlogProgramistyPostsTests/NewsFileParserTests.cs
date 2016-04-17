@@ -77,7 +77,6 @@ namespace AutoBlogProgramistyPostsTests
                     Id ="2"
                 }
             }.ToArray();
-
             
             fileParser.AddTags(this.FileContent[1]);
 

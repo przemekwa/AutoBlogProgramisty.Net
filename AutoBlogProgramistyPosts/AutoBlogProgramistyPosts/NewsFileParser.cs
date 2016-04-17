@@ -99,15 +99,15 @@ namespace AutoBlogProgramistyPosts
             {
                 var stringItem = item.Value.Substring(1, item.Value.Length - 2);
 
-                var existTerm = TermTags.Where(s => s.Slug.ToLower() == stringItem.ToLower()).FirstOrDefault();
+                var existTerm = TermTags.Where(s => s.Name.ToLower() == stringItem.ToLower()).FirstOrDefault();
 
                 if (existTerm == null)
                 {
-                    var maxId = this.TermTags.OrderBy(s => s.Id).Last().Id;
                     existTerm = new Term
                     {
-                        Slug = stringItem,
-                        Id = (int.Parse(maxId) + 1).ToString()
+                        Name = stringItem,
+                        Taxonomy = "post_tag"
+                       
                     };
                 }
 
