@@ -11,16 +11,17 @@ namespace AutoBlogProgramistyPosts
     public class Publisher
     {
         public readonly WordPressClient wordPressClient;
+
         public readonly IPost PostParser;
 
         public Publisher(IPost postParser)
         {
             this.PostParser = postParser;
 
-            this.wordPressClient = new WordPressClient();
-        }
+            wordPressClient = new WordPressClient();
 
-      
+            this.PostParser.TermTags = wordPressClient.GetTerms("post_tag", null);
+        }
         
         public void Get()
         {
@@ -36,21 +37,14 @@ namespace AutoBlogProgramistyPosts
             }
         }
 
-        public void Delete(string id)
-        {
-
-        }
-
         public string Publish()
         {
             using (wordPressClient)
             {
-                this.PostParser.TermTags = wordPressClient.GetTerms("post_tag", null);
-
                 return wordPressClient.NewPost(this.PostParser.GetPost());
             }
         }
     }
 }
-     
-    
+
+

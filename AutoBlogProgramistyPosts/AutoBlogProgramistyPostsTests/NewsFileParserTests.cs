@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WordPressSharp.Models;
 
 namespace AutoBlogProgramistyPostsTests
 {
@@ -68,9 +69,19 @@ namespace AutoBlogProgramistyPostsTests
         {
             var fileParser = new NewsFileParser(this.FileName);
 
+            fileParser.TermTags = new List<Term>
+            {
+                new Term
+                {
+                    Slug = "komentarze",
+                    Id ="2"
+                }
+            }.ToArray();
+
+            
             fileParser.AddTags(this.FileContent[1]);
 
-            Assert.IsTrue(fileParser.Tags.Any(t=>t.Name.Equals("komentarze")));
+            Assert.IsTrue(fileParser.Tags.Any(t=>t.Slug.Equals("komentarze")));
         }
     }
 }

@@ -14,6 +14,12 @@ namespace AutoBlogProgramistyPosts
     {
         public const string HTMLNEWSBODYTEMPLATE = "<ul><li><h3>{0}</h3></li></ul>{1}<blockquote><a href=\"{2}\">{2}</a></blockquote>";
 
+        private const string IMAGEID = "613";
+
+        private const string POSTSTATUS = "publish";
+        private const string AUTHOR = "1";
+        private const string POSTTYPE = "post";
+
         public FileInfo FileInfo { get; set; }
 
         public Term[] TermTags { get; set; }
@@ -42,13 +48,13 @@ namespace AutoBlogProgramistyPosts
         {
             var result = new Post
             {
-                Author = "1",
-                PostType = "post",
+                Author = AUTHOR,
+                PostType = POSTTYPE,
                 Title = string.Format("News-y programistyczne {0}", DateTime.Now.ToString("dd-MM-yyyy")),
                 Content = this.GetHtmlBody(this.GetNewsFromFile()),
                 PublishDateTime = DateTime.Now,
-                Status = "publish",
-                FeaturedImageId = "613",
+                Status = POSTSTATUS,
+                FeaturedImageId = IMAGEID,
                 Terms = this.Tags.ToArray() 
             };
 
@@ -91,18 +97,22 @@ namespace AutoBlogProgramistyPosts
 
             foreach (Capture item in result.Captures)
             {
-                var existTerm = TermTags.Where(s => s.Slug.ToLower() == item.Value.ToLower()).FirstOrDefault();
+                var stringItem = item.Value.Substring(1, item.Value.Length - 2);
+
+                var existTerm = TermTags.Where(s => s.Slug.ToLower() == stringItem.ToLower()).FirstOrDefault();
 
                 if (existTerm == null)
                 {
-                    var maxId = this.TermTags.OrderBy(s => s.Id).Last();
+                    var maxId = this.TermTags.OrderBy(s => s.Id).Last().Id;
+                    existTerm = new Term
+                    {
+                        Slug = stringItem,
+                        Id = (int.Parse(maxId) + 1).ToString()
+                    };
                 }
-                else
-                {
-                    this.Tags.Add(existTerm);
-                }
-            }
 
+                this.Tags.Add(existTerm);
+            }
         }
 
         public NewsDto GetNewsFromFile()
@@ -128,9 +138,6 @@ namespace AutoBlogProgramistyPosts
             }; 
         }
 
-        private void WriteNewsToFile(IEnumerable<string> newsList)
-        {
-            
-        }
+       
     }
 }
