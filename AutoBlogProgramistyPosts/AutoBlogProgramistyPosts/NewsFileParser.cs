@@ -19,6 +19,7 @@ namespace AutoBlogProgramistyPosts
         private const string POSTSTATUS = "publish";
         private const string AUTHOR = "1";
         private const string POSTTYPE = "post";
+        private const string TAGSPATTERN = "\\[.*\\]";
 
         public FileInfo FileInfo { get; set; }
 
@@ -86,12 +87,12 @@ namespace AutoBlogProgramistyPosts
 
         public string RemoveTags(string header)
         {
-            return header;
+            return Regex.Replace(header, TAGSPATTERN, string.Empty);
         }
 
         public void AddTags(string header)
         {
-            var regExp = new Regex("\\[.*\\]");
+            var regExp = new Regex(TAGSPATTERN);
 
             var result = regExp.Match(header);
 
@@ -107,7 +108,6 @@ namespace AutoBlogProgramistyPosts
                     {
                         Name = stringItem,
                         Taxonomy = "post_tag"
-                       
                     };
                 }
 
@@ -137,7 +137,5 @@ namespace AutoBlogProgramistyPosts
                 }
             }; 
         }
-
-       
     }
 }
