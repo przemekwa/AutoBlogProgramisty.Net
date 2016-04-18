@@ -71,13 +71,13 @@ namespace AutoBlogProgramistyPosts
 
             result.Append(news.Header);
 
-            var moreSign = "<!--more-->";
+            var moreSign = "<p><span id=\"more - 1099\"></span></p>";
 
             foreach (var n in news.LinksList)
             {
                 this.AddTags(n.Header);
 
-                result.AppendFormat(HTMLNEWSBODYTEMPLATE, this.RemoveTags(n.Header), moreSign, n.Url);
+                result.AppendFormat(HTMLNEWSBODYTEMPLATE, this.RemoveTags(n.Header), string.Empty, n.Url);
 
                 moreSign = string.Empty;
             }
