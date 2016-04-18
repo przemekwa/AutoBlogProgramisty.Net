@@ -10,7 +10,7 @@ using WordPressSharp.Models;
 
 namespace AutoBlogProgramistyPosts
 {
-    public class NewsFileParser : IPost
+    public class NewsFileParser : IPostCreator
     {
         public const string HTMLNEWSBODYTEMPLATE = "<ul><li><h3>{0}</h3></li></ul>{1}<blockquote><a href=\"{2}\">{2}</a></blockquote>";
 
@@ -73,7 +73,7 @@ namespace AutoBlogProgramistyPosts
 
             var moreSign = "<p><span id=\"more - 1099\"></span></p>";
 
-            foreach (var n in news.LinksList)
+            foreach (var n in news.UrlCollection)
             {
                 this.AddTags(n.Header);
 
@@ -129,7 +129,7 @@ namespace AutoBlogProgramistyPosts
             return new NewsDto
             {
                 Header = lines[0],
-                LinksList = new List<LinksDto>
+                UrlCollection = new List<LinksDto>
                 {
                     new LinksDto { Header = lines[1], Url = lines[2] },
                     new LinksDto { Header = lines[3], Url = lines[4] },

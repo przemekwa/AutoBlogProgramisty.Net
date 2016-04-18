@@ -12,11 +12,11 @@ namespace AutoBlogProgramistyPosts
     {
         public readonly WordPressClient wordPressClient;
 
-        public readonly IPost PostParser;
+        public readonly IPostCreator PostParser;
 
         private Term[] TermTags;
 
-        public Publisher(IPost postParser)
+        public Publisher(IPostCreator postParser)
         {
             this.PostParser = postParser;
 

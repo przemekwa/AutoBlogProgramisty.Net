@@ -49,9 +49,9 @@ namespace AutoBlogProgramistyPostsTests
 
             Assert.AreEqual(result.Header, this.FileContent[0], "Błędny nagłówek");
 
-            Assert.AreEqual(result.LinksList.Count, 3, "Błędny ilość wiadomosći");
+            Assert.AreEqual(result.UrlCollection.Count, 3, "Błędny ilość wiadomosći");
 
-            Assert.AreEqual(result.LinksList[1].Header, this.FileContent[3]);
+            Assert.AreEqual(result.UrlCollection[1].Header, this.FileContent[3]);
         }
 
         [Test]

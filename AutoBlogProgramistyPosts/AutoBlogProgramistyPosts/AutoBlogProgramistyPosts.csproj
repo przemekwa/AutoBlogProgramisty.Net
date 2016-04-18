@@ -46,9 +46,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPost.cs" />
-    <Compile Include="LinksDto.cs" />
-    <Compile Include="NewsDto.cs" />
+    <Compile Include="IPostCreator.cs" />
+    <Compile Include="Dto\UrlDto.cs" />
+    <Compile Include="Dto\NewsDto.cs" />
     <Compile Include="NewsFileParser.cs" />
     <Compile Include="Publisher .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
