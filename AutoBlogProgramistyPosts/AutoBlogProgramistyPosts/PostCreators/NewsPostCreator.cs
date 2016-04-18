@@ -1,25 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using WordPressSharp.Models;
 
 namespace AutoBlogProgramistyPosts
 {
-    public class NewsFileParser : IPostCreator
+    public class NewsPostCreator : IPostCreator
     {
         public const string HTMLNEWSBODYTEMPLATE = "<ul><li><h3>{0}</h3></li></ul>{1}<blockquote><a href=\"{2}\">{2}</a></blockquote>";
-
-        private const string IMAGEID = "613";
-
-        private const string POSTSTATUS = "publish";
-        private const string AUTHOR = "1";
-        private const string POSTTYPE = "post";
-        private const string TAGSPATTERN = "\\[.*\\]";
+        public const string IMAGEID = "613";
+        public const string POSTSTATUS = "publish";
+        public const string AUTHOR = "1";
+        public const string POSTTYPE = "post";
+        public const string TAGSPATTERN = "\\[.*\\]";
 
         public FileInfo FileInfo { get; set; }
 
@@ -27,7 +23,7 @@ namespace AutoBlogProgramistyPosts
 
         public List<Term> Tags { get; set; } 
                
-        public NewsFileParser(string fileName)
+        public NewsPostCreator(string fileName)
         {
             this.FileInfo = new FileInfo(fileName);
 
@@ -53,15 +49,16 @@ namespace AutoBlogProgramistyPosts
                 PostType = POSTTYPE,
                 Title = string.Format("News-y programistyczne {0}", DateTime.Now.ToString("dd-MM-yyyy")),
                 Content = this.GetHtmlBody(this.GetNewsFromFile()),
-                PublishDateTime = DateTime.Now,
+#if DEBUG
+                PublishDateTime = DateTime.Now.AddDays(2),
+#else
+                 PublishDateTime = DateTime.Now,
+#endif
                 Status = POSTSTATUS,
                 FeaturedImageId = IMAGEID,
                 Terms = this.Tags.ToArray() 
             };
 
-#if DEBUG
-            result.PublishDateTime = DateTime.Now.AddDays(2);
-#endif
             return result; 
         }
 
@@ -71,13 +68,15 @@ namespace AutoBlogProgramistyPosts
 
             result.Append(news.Header);
 
+            // TODO Znaleść sposób na wstawianie znacznikia <!-- more -->
+                
             var moreSign = "<p><span id=\"more - 1099\"></span></p>";
 
             foreach (var n in news.UrlCollection)
             {
                 this.AddTags(n.Header);
 
-                result.AppendFormat(HTMLNEWSBODYTEMPLATE, this.RemoveTags(n.Header), string.Empty, n.Url);
+                result.AppendFormat(HTMLNEWSBODYTEMPLATE, this.RemoveTags(n.Header), moreSign, n.Url);
 
                 moreSign = string.Empty;
             }
@@ -117,8 +116,6 @@ namespace AutoBlogProgramistyPosts
 
         public NewsDto GetNewsFromFile()
         {
-            var newsList = new List<NewsDto>();
-
             var lines = File.ReadAllLines(this.FileInfo.FullName);
 
             if (lines.Count() != 7)

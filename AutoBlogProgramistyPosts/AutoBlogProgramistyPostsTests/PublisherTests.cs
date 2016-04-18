@@ -12,6 +12,20 @@ namespace AutoBlogProgramistyPostsTests
 {
     public class PublisherTests
     {
+        //public void Get()
+        //{
+        //    using (wordPressClient)
+        //    {
+        //        var test = wordPressClient.GetPosts(null);
+
+        //        var termlist = wordPressClient.GetTerms("post_tag", null);
+
+        //        var test2 = wordPressClient.GetMediaItems(null);
+
+        //        var id = test2.Where(g => g.Link.Contains("main_news_art_2.png")).First();
+        //    }
+        //}
+
         public string FileName { get; set; }
 
         public string[] FileContent { get; set; }
@@ -45,7 +59,7 @@ namespace AutoBlogProgramistyPostsTests
         {
             using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPosts\bin\Debug\AutoBlogProgramistyPosts.dll.config"))
             {
-                var publisher = new Publisher(new NewsFileParser(this.FileName));
+                var publisher = new Publisher(new NewsPostCreator(this.FileName));
 
                 Assert.AreNotEqual(string.Empty, publisher.Publish());
             }
@@ -56,9 +70,8 @@ namespace AutoBlogProgramistyPostsTests
         {
             using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPosts\bin\Debug\AutoBlogProgramistyPosts.dll.config"))
             {
-                var awp = new Publisher(new NewsFileParser("a"));
-
-                awp.Get();
+                var awp = new Publisher(new NewsPostCreator("a"));
+                
             }
         }
     }

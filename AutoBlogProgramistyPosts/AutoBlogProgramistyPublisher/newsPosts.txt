@@ -1,10 +1,7 @@
+ï»¿CoÅ›am
 Koszty tworzenia komentarzy
 https://jaxenter.com/costs-and-benefits-of-comments-124166.html
-SOLID na potocznych przyk³adach
+SOLID na potocznych przkÅ‚adachadach
 http://www.daedtech.com/solid-principles-real-life/
-8 rzeczy aby byæ lepszym programist¹
+8 rzeczy aby sdasd lepszym asdas
 https://blog.newrelic.com/2016/02/22/8-ways-become-a-better-coder/
-Pocz¹tki z .NET Micro Framewrok
-http://www.codeproject.com/Articles/1079603/Getting-Started-with-the-NET-Micro-Framework
-Kolejna porcja open-source tym razem z WPF-a
-http://www.infoq.com/news/2016/02/XAML-Behaviors

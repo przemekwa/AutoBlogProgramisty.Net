@@ -49,7 +49,7 @@
     <Compile Include="IPostCreator.cs" />
     <Compile Include="Dto\UrlDto.cs" />
     <Compile Include="Dto\NewsDto.cs" />
-    <Compile Include="NewsFileParser.cs" />
+    <Compile Include="PostCreators\NewsPostCreator.cs" />
     <Compile Include="Publisher .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

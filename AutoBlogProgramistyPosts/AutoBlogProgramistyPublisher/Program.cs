@@ -17,10 +17,13 @@ namespace AutoBlogProgramistyPublisher
                 throw new Exception("Brak pliku {0} na dysk");
             }
 
-            var publisher = new Publisher(new NewsFileParser(args[0]));
+            Console.WriteLine("Rozpoczęcie publikowania postu na blogu");
 
+            var publisher = new Publisher(new NewsPostCreator(args[0]));
+            
             publisher.Publish();
 
+            Console.WriteLine("Opublikowano post");
         }
     }
 }
