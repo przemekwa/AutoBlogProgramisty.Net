@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using WordPressSharp;
 using WordPressSharp.Models;
 
@@ -30,15 +31,6 @@ namespace AutoBlogProgramistyPosts
                 var post = this.PostCreator.GetPost();
 
                 // TODO Lepsza obsługa tagów
-
-                var listTagsToAdd = post.Terms.Except(this.TermTags.Where(c=>c.Taxonomy == "post_tag"));
-
-                foreach (var item in listTagsToAdd.Where(c=>c.Taxonomy == "post_tag"))
-                {
-                    this.wordPressClient.NewTerm(item);
-
-                    post.Terms.ToList().Remove(item);
-                }
 
                 return wordPressClient.NewPost(post);
             }

@@ -1,7 +1,7 @@
-﻿Cośam
-Koszty tworzenia komentarzy
-https://jaxenter.com/costs-and-benefits-of-comments-124166.html
-SOLID na potocznych przkładachadach
-http://www.daedtech.com/solid-principles-real-life/
-8 rzeczy aby sdasd lepszym asdas
-https://blog.newrelic.com/2016/02/22/8-ways-become-a-better-coder/
+﻿Automat dorobił się umiejętności tagowania postów  : ) Zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
+Ciekawy artykuł na BBC o Jon-ie Skeet-cie[Jon Skeet]
+http://www.bbc.com/news/uk-england-34596634
+Ściągawka terminologiczna dla .NET Core-a[.Net Core]
+http://www.infoq.com/news/2016/01/Net-Core-1.0?utm_campaign=rightbar_v2&utm_source=infoq&utm_medium=news_link&utm_content=link_text
+.Net Core - koniec refleksji, domen i innych...[migracja] 
+http://www.infoq.com/news/2016/02/Core-Discontinued
