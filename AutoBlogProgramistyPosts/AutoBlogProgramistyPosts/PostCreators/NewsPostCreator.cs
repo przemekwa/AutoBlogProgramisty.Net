@@ -16,6 +16,7 @@ namespace AutoBlogProgramistyPosts
         public const string AUTHOR = "1";
         public const string POSTTYPE = "post";
         public const string TAGSPATTERN = "\\[.*\\]";
+        private const string TAXONOMYTAG = "post_tag";
 
         public FileInfo FileInfo { get; set; }
 
@@ -97,20 +98,11 @@ namespace AutoBlogProgramistyPosts
 
             foreach (Capture item in result.Captures)
             {
-                var stringItem = item.Value.Substring(1, item.Value.Length - 2);
-
-                var existTerm = TermTags.Where(s => s.Name.ToLower() == stringItem.ToLower()).FirstOrDefault();
-
-                if (existTerm == null)
+                this.Tags.Add(new Term
                 {
-                    existTerm = new Term
-                    {
-                        Name = stringItem,
-                        Taxonomy = "post_tag"
-                    };
-                }
-
-                this.Tags.Add(existTerm);
+                    Name = item.Value.Substring(1, item.Value.Length - 2),
+                    Taxonomy = TAXONOMYTAG
+                });
             }
         }
 

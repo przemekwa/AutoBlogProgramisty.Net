@@ -1,7 +1,7 @@
 ﻿Automat dorobił się umiejętności tagowania postów  : ) Zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
 Ciekawy artykuł na BBC o Jon-ie Skeet-cie[Jon Skeet]
 http://www.bbc.com/news/uk-england-34596634
-Ściągawka terminologiczna dla .NET Core-a[.Net Core]
+Ściągawka terminologiczna dla .NET Core-a[klasa]
 http://www.infoq.com/news/2016/01/Net-Core-1.0?utm_campaign=rightbar_v2&utm_source=infoq&utm_medium=news_link&utm_content=link_text
 .Net Core - koniec refleksji, domen i innych...[migracja] 
 http://www.infoq.com/news/2016/02/Core-Discontinued
