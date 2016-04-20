@@ -20,8 +20,6 @@ namespace AutoBlogProgramistyPosts
 
         public FileInfo FileInfo { get; set; }
 
-        public Term[] TermTags { get; set; }
-
         public List<Term> Tags { get; set; } 
                
         public NewsPostCreator(string fileName)
