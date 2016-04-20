@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WordPressSharp.Models;
-using static AutoBlogProgramistyPosts.Constants
+using static AutoBlogProgramistyPosts.Constants;
 
 namespace AutoBlogProgramistyPostsTests
 {
