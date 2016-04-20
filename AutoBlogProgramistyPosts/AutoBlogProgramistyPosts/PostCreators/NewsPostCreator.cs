@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using WordPressSharp.Models;
+using static AutoBlogProgramistyPosts.Constants;
 
 namespace AutoBlogProgramistyPosts
 {
@@ -16,7 +17,6 @@ namespace AutoBlogProgramistyPosts
         public const string AUTHOR = "1";
         public const string POSTTYPE = "post";
         public const string TAGSPATTERN = "\\[.*\\]";
-        private const string TAXONOMYTAG = "post_tag";
 
         public FileInfo FileInfo { get; set; }
 
@@ -99,7 +99,7 @@ namespace AutoBlogProgramistyPosts
                 this.Tags.Add(new Term
                 {
                     Name = item.Value.Substring(1, item.Value.Length - 2),
-                    Taxonomy = TAXONOMYTAG
+                    Taxonomy = TAGTAXONOMY
                 });
             }
         }

@@ -2,6 +2,7 @@
 using System.Linq;
 using WordPressSharp;
 using WordPressSharp.Models;
+using static AutoBlogProgramistyPosts.Constants;
 
 namespace AutoBlogProgramistyPosts
 {
@@ -19,7 +20,7 @@ namespace AutoBlogProgramistyPosts
 
             wordPressClient = new WordPressClient();
 
-            this.TermTags = wordPressClient.GetTerms("post_tag", null);
+            this.TermTags = wordPressClient.GetTerms(TAGTAXONOMY, null);
         }
 
         public string Publish()
@@ -36,9 +37,9 @@ namespace AutoBlogProgramistyPosts
 
         private IEnumerable<Term> UpdateTags(Term[] postTags)
         {
-            var tempTermList = new List<Term>(postTags.Where(t => t.Taxonomy != "post_tag"));
+            var tempTermList = new List<Term>(postTags.Where(t => t.Taxonomy != TAGTAXONOMY));
 
-            foreach (var item in postTags.Where(i=>i.Taxonomy == "post_tag"))
+            foreach (var item in postTags.Where(i=>i.Taxonomy == TAGTAXONOMY))
             {
                 var element = this.TermTags.SingleOrDefault(t => t.Name.ToLower() == item.Name.ToLower());
 

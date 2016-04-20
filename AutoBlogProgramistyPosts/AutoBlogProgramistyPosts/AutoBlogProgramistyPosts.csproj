@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="IPostCreator.cs" />
     <Compile Include="Dto\UrlDto.cs" />
     <Compile Include="Dto\NewsDto.cs" />

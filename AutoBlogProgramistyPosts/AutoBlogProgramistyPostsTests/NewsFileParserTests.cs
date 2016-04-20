@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WordPressSharp.Models;
+using static AutoBlogProgramistyPosts.Constants
 
 namespace AutoBlogProgramistyPostsTests
 {
@@ -71,7 +72,7 @@ namespace AutoBlogProgramistyPostsTests
 
             fileParser.AddTags(this.FileContent[1]);
 
-            Assert.IsTrue(fileParser.Tags.Any(t=>t.Name.Equals("komentarze") && t.Taxonomy== "post_tag" ));
+            Assert.IsTrue(fileParser.Tags.Any(t=>t.Name.Equals("komentarze") && t.Taxonomy== TAGTAXONOMY ));
         }
     }
 }
