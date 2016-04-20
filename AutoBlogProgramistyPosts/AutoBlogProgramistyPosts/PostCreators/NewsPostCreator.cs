@@ -16,7 +16,7 @@ namespace AutoBlogProgramistyPosts
         public const string POSTSTATUS = "publish";
         public const string AUTHOR = "1";
         public const string POSTTYPE = "post";
-        public const string TAGSPATTERN = "\\[.*\\]";
+        public const string TAGSPATTERN = "\\[[^\\[\\].+]*\\]";
 
         public FileInfo FileInfo { get; set; }
 
@@ -92,9 +92,9 @@ namespace AutoBlogProgramistyPosts
         {
             var regExp = new Regex(TAGSPATTERN);
 
-            var result = regExp.Match(header);
+            var result = regExp.Matches(header);
 
-            foreach (Capture item in result.Captures)
+            foreach (Match item in result)
             {
                 this.Tags.Add(new Term
                 {
