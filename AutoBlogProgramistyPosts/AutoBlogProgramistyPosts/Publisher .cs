@@ -16,9 +16,9 @@ namespace AutoBlogProgramistyPosts
 
         public Publisher(IPostCreator postCreator)
         {
-            this.PostCreator = postCreator;
+            this.wordPressClient = new WordPressClient();
 
-            wordPressClient = new WordPressClient();
+            this.PostCreator = postCreator;
 
             this.TermTags = wordPressClient.GetTerms(TAGTAXONOMY, null);
         }
