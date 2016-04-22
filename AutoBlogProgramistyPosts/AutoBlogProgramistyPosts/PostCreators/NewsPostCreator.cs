@@ -108,21 +108,22 @@ namespace AutoBlogProgramistyPosts
         {
             var lines = File.ReadAllLines(this.FileInfo.FullName);
 
-            if (lines.Count() != 7)
-            {
-                throw new Exception("Plik musi mieć dokładnie 7 lini a ma " + lines.Count());
-            }
-
-            return new NewsDto
+            var result = new NewsDto
             {
                 Header = lines[0],
-                UrlCollection = new List<LinksDto>
+                UrlCollection = new List<LinksDto>()
+            };
+
+            for (int i = 1; i < lines.Length ; i = i + 2)
+            {
+                result.UrlCollection.Add(new LinksDto
                 {
-                    new LinksDto { Header = lines[1], Url = lines[2] },
-                    new LinksDto { Header = lines[3], Url = lines[4] },
-                    new LinksDto { Header = lines[5], Url = lines[6] }
-                }
-            }; 
+                    Header = lines[i],
+                    Url = lines[i + 1]
+                });
+            }
+
+            return result;
         }
     }
 }
