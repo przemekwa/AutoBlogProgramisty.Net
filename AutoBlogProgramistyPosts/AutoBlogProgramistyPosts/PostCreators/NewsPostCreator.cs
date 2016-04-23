@@ -99,7 +99,7 @@ namespace AutoBlogProgramistyPosts
                 this.Tags.Add(new Term
                 {
                     Name = item.Value.Substring(1, item.Value.Length - 2),
-                    Taxonomy = TAGTAXONOMY
+                    Taxonomy = TAGTAXONOMY,
                 });
             }
         }

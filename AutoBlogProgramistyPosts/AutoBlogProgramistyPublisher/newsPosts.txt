@@ -1,7 +1,7 @@
-﻿Automat dorobił się umiejętności tagowania postów  : ) Zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
-Ciekawy artykuł na BBC o Jon-ie Skeet-cie[Jon Skeet]
-http://www.bbc.com/news/uk-england-34596634
-Ściągawka terminologiczna dla .NET Core-a[klasa] [klasa2]
-http://www.infoq.com/news/2016/01/Net-Core-1.0?utm_campaign=rightbar_v2&utm_source=infoq&utm_medium=news_link&utm_content=link_text
-.Net Core - koniec refleksji, domen i innych...[migracja] 
-http://www.infoq.com/news/2016/02/Core-Discontinued
+﻿Automat działa prawie idealnie : ) Teraz czas na automatyczną wysyłkę powiadomień na Twitera i Facebook-a więc zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
+Jak dobrze testować swoje oprogramowanie?[testowanie2][oprogramowanie3]
+http://simpleprogrammer.com/2016/04/20/developers-poor-testers-can-done/
+Ciekawy sposób na wyrównanie płac w firmie. Testowy w google : ) [wynagrodzenie3][firma3]
+http://blogs.wsj.com/digits/2015/07/21/ex-google-employee-exposes-unequal-pay-with-spreadsheet/
+Net Repair Tool[net Repair Tool3] - przyznam, że nie słyszałem o tym. Myślę, że warto wiedzieć, że coś takiego istnieje.
+https://blogs.msdn.microsoft.com/dotnet/2014/04/28/introducing-the-microsoft-net-framework-repair-tool/

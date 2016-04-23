@@ -38,12 +38,20 @@ namespace AutoBlogProgramistyPosts
         private IEnumerable<Term> UpdateTags(Term[] postTags)
         {
             var tempTermList = new List<Term>(postTags.Where(t => t.Taxonomy != TAGTAXONOMY));
-
+            
             foreach (var item in postTags.Where(i=>i.Taxonomy == TAGTAXONOMY))
             {
                 var element = this.TermTags.SingleOrDefault(t => t.Name.ToLower() == item.Name.ToLower());
 
-                tempTermList.Add(element != null ? element : item);
+                if (element == null)
+                {
+                    var id = wordPressClient.NewTerm(item);
+                    item.Id = id;
+                    item.TermTaxonomyId = id;
+                    element = item;
+                }
+
+                tempTermList.Add(element);
             }
 
             return tempTermList;
