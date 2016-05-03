@@ -15,9 +15,9 @@ namespace AutoBlogProgramistyPostsTests
         {
             using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPublisher\App.config"))
             {
-                var test = new Publisher(null);
+                
 
-                test.PublisTwitter();
+               
 
                 Assert.Pass();
             }

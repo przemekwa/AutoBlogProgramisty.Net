@@ -4,12 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using AutoBlogProgramistyPosts.Dto;
 using WordPressSharp.Models;
 using static AutoBlogProgramistyPosts.Constants;
 
 namespace AutoBlogProgramistyPosts
 {
-    public class NewsPostCreator : NewBaseCreator, IPostCreator
+    public class NewsPostCreator : NewsBaseCreator, IPostCreator
     {
         public const string HTMLNEWSBODYTEMPLATE = "<ul><li><h3>{0}</h3></li></ul>{1}<blockquote><a href=\"{2}\">{2}</a></blockquote>";
         public const string IMAGEID = "613";
@@ -36,9 +37,9 @@ namespace AutoBlogProgramistyPosts
                     } };
         }
 
-        public Post GetPost()
+        public PostDto GetPost()
         {
-            var result = new Post
+            var result = new PostDto
             {
                 Author = AUTHOR,
                 PostType = POSTTYPE,

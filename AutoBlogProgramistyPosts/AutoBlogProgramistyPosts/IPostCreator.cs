@@ -1,9 +1,10 @@
-﻿using WordPressSharp.Models;
+﻿using AutoBlogProgramistyPosts.Dto;
+using WordPressSharp.Models;
 
 namespace AutoBlogProgramistyPosts
 {
     public interface IPostCreator
     {
-        Post GetPost();
+        PostDto GetPost();
     }
 }

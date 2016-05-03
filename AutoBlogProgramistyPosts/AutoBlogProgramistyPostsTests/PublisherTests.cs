@@ -54,25 +54,25 @@ namespace AutoBlogProgramistyPostsTests
             File.Delete(this.FileName);
         }
 
-        //[Test]
-        public void Publish_News_Post_From_File_Test()
-        {
-            using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPublisher\App.config"))
-            {
-                var publisher = new Publisher(new NewsPostCreator(this.FileName) );
+        ////[Test]
+        //public void Publish_News_Post_From_File_Test()
+        //{
+        //    using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPublisher\App.config"))
+        //    {
+        //        var publisher = new Publisher(new NewsPostCreator(this.FileName) );
 
-                Assert.AreNotEqual(string.Empty, publisher.Publish());
-            }
-        }
+        //        Assert.AreNotEqual(string.Empty, publisher.PublishPostOnWordPress());
+        //    }
+        //}
 
-        //[Test]
-        public void Get_Posts_Test()
-        {
-            using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPublisher\App.config"))
-            {
-                var awp = new Publisher(new NewsPostCreator("a"));
+        ////[Test]
+        //public void Get_Posts_Test()
+        //{
+        //    using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPublisher\App.config"))
+        //    {
+        //        var awp = new Publisher(new NewsPostCreator("a"));
 
-            }
-        }
+        //    }
+        //}
     }
 }

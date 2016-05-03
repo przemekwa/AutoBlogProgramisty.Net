@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace AutoBlogProgramistyPosts
 {
-    public abstract class NewBaseCreator
+    public abstract class NewsBaseCreator
     {
         public FileInfo FileInfo { get; private set; }
 
-        public NewBaseCreator(string fileName)
+        public NewsBaseCreator(string fileName)
         {
             this.FileInfo = new FileInfo(fileName);
         }

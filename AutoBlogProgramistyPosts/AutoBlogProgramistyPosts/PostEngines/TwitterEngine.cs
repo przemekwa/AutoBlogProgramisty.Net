@@ -6,11 +6,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoBlogProgramistyPosts.Dto;
 using TweetSharp;
+using WordPressSharp.Models;
 
 namespace AutoBlogProgramistyPosts.PostCreators
 {
-    public class NewsPostTwitterCreator : NewBaseCreator, IPostTwitterCreator
+    public class TwitterEngine : IPostEngine
     {
         public string PostLink { get; set; }
 
@@ -18,13 +20,16 @@ namespace AutoBlogProgramistyPosts.PostCreators
 
         private Func<string, string> verifierMethod;
 
-        public NewsPostTwitterCreator(string fileName, Func<string, string> verifierMethod) : base(fileName)
+        private IPostCreator postCreator;
+
+        public TwitterEngine(Func<string, string> verifierMethod, IPostCreator postCreator)
         {
-           this.verifierMethod = verifierMethod;
-           this.twitterService = new TwitterService(ConfigurationManager.AppSettings["TwitterKey"], ConfigurationManager.AppSettings["TwitterSecret"]);
+            this.postCreator = postCreator;
+            this.verifierMethod = verifierMethod;
+            this.twitterService = new TwitterService(ConfigurationManager.AppSettings["TwitterKey"], ConfigurationManager.AppSettings["TwitterSecret"]);
         }
 
-        public void SendTweet()
+        public void SendTweet(string msg)
         {
             OAuthAccessToken access = GetOAuthAccessToken();
 
@@ -58,6 +63,16 @@ namespace AutoBlogProgramistyPosts.PostCreators
                 Token = ConfigurationManager.AppSettings["TwitterToken"],
                 TokenSecret = ConfigurationManager.AppSettings["TwitterTokenSecret"]
             };
+        }
+               
+        public PostDto PublishPost()
+        {
+            var msg = this.postCreator.GetPost();
+
+            this.SendTweet(msg.Link);
+
+
+            return null;
         }
     }
 }

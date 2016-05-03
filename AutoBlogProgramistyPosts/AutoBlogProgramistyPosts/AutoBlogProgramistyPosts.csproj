@@ -60,13 +60,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Dto\PostDto.cs" />
     <Compile Include="IPostCreator.cs" />
     <Compile Include="Dto\UrlDto.cs" />
     <Compile Include="Dto\NewsDto.cs" />
-    <Compile Include="IPostTwitterCreator.cs" />
-    <Compile Include="PostCreators\NewBaseCreator.cs" />
+    <Compile Include="IPostEngine.cs" />
+    <Compile Include="PostCreators\NewsBaseCreator.cs" />
     <Compile Include="PostCreators\NewsPostCreator.cs" />
-    <Compile Include="PostCreators\NewsPostTwitterCreator.cs" />
+    <Compile Include="PostEngines\TwitterEngine.cs" />
+    <Compile Include="PostEngines\WordPressEngine.cs" />
     <Compile Include="Publisher .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
