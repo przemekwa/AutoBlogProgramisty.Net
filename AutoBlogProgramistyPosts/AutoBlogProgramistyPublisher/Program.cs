@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace AutoBlogProgramistyPublisher
 {
@@ -21,11 +22,15 @@ namespace AutoBlogProgramistyPublisher
 
             var publisher = new Publisher(new NewsPostCreator(args[0]));
 
-            publisher.Publish();
+            // publisher.Publish();
 
-            publisher.PublisTwitter(() =>
+            publisher.PublisTwitter((uri) =>
             {
+                Process.Start(uri);
+
                 Console.WriteLine("Podaj klucz do autoryzacji Twittera");
+
+
                 return Console.ReadLine();
             });
 

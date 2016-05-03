@@ -9,6 +9,6 @@ namespace AutoBlogProgramistyPosts
     public interface IPostTwitterCreator
     {
         string PostLink { get; set; }
-        void SendTweet(Func<string> verifierMethod);
+        void SendTweet(Func<string,string> verifierMethod);
     }
 }

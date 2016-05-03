@@ -19,14 +19,15 @@ namespace AutoBlogProgramistyPosts.PostCreators
            
         }
 
-        public void SendTweet(Func<string> verifierMethod)
+        public void SendTweet(Func<string,string> verifierMethod)
         {
             TwitterService service = new TwitterService(ConfigurationManager.AppSettings["TwitterKey"], ConfigurationManager.AppSettings["TwitterSecret"]);
 
             OAuthRequestToken requestToken = service.GetRequestToken();
+
             Uri uri = service.GetAuthorizationUri(requestToken);
-            Process.Start(uri.ToString());
-            OAuthAccessToken access = service.GetAccessToken(requestToken, verifierMethod.Invoke());
+          
+            OAuthAccessToken access = service.GetAccessToken(requestToken, verifierMethod.Invoke(uri.ToString()));
             service.AuthenticateWith(access.Token, access.TokenSecret);
             var ts = service.SendTweet(new SendTweetOptions { Status = "TestAutoBlogProgramisty" + PostLink });
         }

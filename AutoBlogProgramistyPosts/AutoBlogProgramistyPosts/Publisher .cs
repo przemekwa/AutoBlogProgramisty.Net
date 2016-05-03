@@ -46,7 +46,7 @@ namespace AutoBlogProgramistyPosts
             }
         }
 
-        public void PublisTwitter(Func<string> verifierMethod)
+        public void PublisTwitter(Func<string, string> verifierMethod)
         {
             using (wordPressClient)
             {
