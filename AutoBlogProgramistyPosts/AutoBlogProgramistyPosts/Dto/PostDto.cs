@@ -23,6 +23,7 @@ namespace AutoBlogProgramistyPosts.Dto
 
         public string FeaturedImageId { get; set; }
 
+        //TODO pozybyć się odwołań do wordpress-a
         public Term[] Terms { get; set; }
 
         public string Link { get; set; }

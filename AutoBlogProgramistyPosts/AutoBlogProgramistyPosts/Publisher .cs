@@ -14,26 +14,22 @@ namespace AutoBlogProgramistyPosts
 {
     public class Publisher
     {
-        public PostDto Publish(IPostEngine postEngine)
+        private IPostEngine postEngine;
+
+        public Publisher(IPostEngine postEngine)
         {
-           return postEngine.PublishPost();
+            this.postEngine = postEngine;
         }
-       
 
+        public PostDto Publish(IPostCreator postCreator)
+        {
+            return this.postEngine.PublishPost(postCreator);
+        }
 
-        //public void PublishPostOnTwitter()
-        //{
-        //    using (wordPressClient)
-        //    {
-        //       var newsPost = wordPressClient.GetPost(this.postId);
-                 
-        //       this.PostTwitterCreator.PostLink = newsPost.Link;
-        //    }
-              
-        //   this.PostTwitterCreator.SendTweet();
-        //}
-
-      
+        public PostDto Publish(PostDto post)
+        {
+            return this.postEngine.PublishPost(post);
+        }        
     }
 }
 

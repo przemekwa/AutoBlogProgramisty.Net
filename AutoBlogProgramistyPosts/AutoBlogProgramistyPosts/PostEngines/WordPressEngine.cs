@@ -19,9 +19,10 @@ namespace AutoBlogProgramistyPosts.PostEngines
 
         public const string TAGTAXONOMY = "post_tag";
 
-        public WordPressEngine(IPostCreator postCreator)
+        private PostDto post;
+
+        public WordPressEngine()
         {
-            this.PostCreator = postCreator;
             this.wordPressClient = new WordPressClient();
         }
 
@@ -51,7 +52,7 @@ namespace AutoBlogProgramistyPosts.PostEngines
         {
             this.TermTags = wordPressClient.GetTerms(TAGTAXONOMY, null);
 
-            var post = this.PostCreator.GetPost();
+            post = this.PostCreator.GetPost();
 
             var wordPressPost = new Post
             {
@@ -71,10 +72,24 @@ namespace AutoBlogProgramistyPosts.PostEngines
 
                 var postId = int.Parse(wordPressClient.NewPost(wordPressPost));
 
-                wordPressClient.GetPost(postId);
+                post.Link = wordPressClient.GetPost(postId).Link;
             }
 
             return post;
+        }
+
+        public PostDto PublishPost(IPostCreator postCreator)
+        {
+            this.PostCreator = postCreator;
+            return this.PublishPost();
+        }
+
+        public PostDto PublishPost(PostDto postDto)
+        {
+            this.post = postDto;
+            this.PublishPost();
+
+            return this.post;
         }
     }
 }

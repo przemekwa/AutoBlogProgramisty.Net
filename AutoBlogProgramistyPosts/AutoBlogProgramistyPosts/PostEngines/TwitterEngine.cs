@@ -14,17 +14,14 @@ namespace AutoBlogProgramistyPosts.PostCreators
 {
     public class TwitterEngine : IPostEngine
     {
-        public string PostLink { get; set; }
-
         private TwitterService twitterService;
 
         private Func<string, string> verifierMethod;
 
         private IPostCreator postCreator;
 
-        public TwitterEngine(Func<string, string> verifierMethod, IPostCreator postCreator)
+        public TwitterEngine(Func<string, string> verifierMethod)
         {
-            this.postCreator = postCreator;
             this.verifierMethod = verifierMethod;
             this.twitterService = new TwitterService(ConfigurationManager.AppSettings["TwitterKey"], ConfigurationManager.AppSettings["TwitterSecret"]);
         }
@@ -35,7 +32,7 @@ namespace AutoBlogProgramistyPosts.PostCreators
 
             this.twitterService.AuthenticateWith(access.Token, access.TokenSecret);
 
-            this.twitterService.SendTweet(new SendTweetOptions { Status = "TestAutoBlogProgramisty" + PostLink });
+            this.twitterService.SendTweet(new SendTweetOptions { Status = msg });
         }
 
         private OAuthAccessToken GetOAuthAccessToken()
@@ -65,14 +62,18 @@ namespace AutoBlogProgramistyPosts.PostCreators
             };
         }
                
-        public PostDto PublishPost()
+       
+        public PostDto PublishPost(IPostCreator postCreator)
         {
             var msg = this.postCreator.GetPost();
-
             this.SendTweet(msg.Link);
-
-
             return null;
+        }
+
+        public PostDto PublishPost(PostDto postDto)
+        {
+            this.SendTweet(postDto.Link);
+            return postDto;
         }
     }
 }

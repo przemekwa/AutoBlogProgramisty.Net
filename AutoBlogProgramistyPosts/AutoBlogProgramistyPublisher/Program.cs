@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using AutoBlogProgramistyPosts.PostCreators;
 using AutoBlogProgramistyPosts.PostEngines;
+using AutoBlogProgramistyPosts.Dto;
 
 namespace AutoBlogProgramistyPublisher
 {
@@ -20,31 +21,32 @@ namespace AutoBlogProgramistyPublisher
                 throw new Exception("Brak pliku {0} na dysk");
             }
 
-            Console.WriteLine("Rozpoczęcie publikowania postu na blogu");
+            Console.WriteLine("Rozpoczęcie publikowania postu na WordPress-ie");
 
-            var publisher = new Publisher();
+            var publisher = new Publisher(new WordPressEngine());
 
-            publisher.Publish(new WordPressEngine(new NewsPostCreator(args[0])));
+            var postFromWordPress = publisher.Publish(new NewsPostCreator(args[0]));
 
+            Console.WriteLine("Obublikowano na WordPress-ie");
 
+            Console.WriteLine("Rozpoczęcie publikowania postu na Twitter-rze");
 
+            publisher = new Publisher(new TwitterEngine(url =>
+            {
+                Process.Start(url);
 
-            //var publisher = new Publisher(new TwitterEngine(new NewsPostCreator(args[0])));
+                Console.WriteLine("Podaj klucz do autoryzacji Twittera");
 
-            //publisher.Publish();
+                return Console.ReadLine();
+            }));
 
+            publisher.Publish(postFromWordPress);
 
-            //{
-            //    Process.Start(uri);
+            //publisher.Publish(new PostDto { Link = "dsd" });
 
-            //    Console.WriteLine("Podaj klucz do autoryzacji Twittera");
+            Console.WriteLine("Obublikowano na Twitter-rze");
 
-            //    return Console.ReadLine();
-            //}));
-
-
-
-            Console.WriteLine("Opublikowano post");
+            Console.ReadKey();
         }
     }
 }
