@@ -46,7 +46,7 @@ namespace AutoBlogProgramistyPosts
             }
         }
 
-        public void PublisTwitter(Func<string, string> verifierMethod)
+        public void PublisTwitter()
         {
             using (wordPressClient)
             {
@@ -55,7 +55,7 @@ namespace AutoBlogProgramistyPosts
                 //this.PostTwitterCreator.PostLink = newsPost.Link;
             }
               
-           this.PostTwitterCreator.SendTweet(verifierMethod);
+           this.PostTwitterCreator.SendTweet();
         }
 
         private IEnumerable<Term> UpdateTags(Term[] postTags)

@@ -21,19 +21,21 @@ namespace AutoBlogProgramistyPublisher
 
             Console.WriteLine("Rozpoczęcie publikowania postu na blogu");
 
-            var publisher = new Publisher(new NewsPostCreator(args[0]), new NewsPostTwitterCreator(args[0]));
-
-            // publisher.Publish();
-
-            publisher.PublisTwitter((uri) =>
+            var publisher = new Publisher(new NewsPostCreator(args[0]), new NewsPostTwitterCreator(args[0], (uri) =>
             {
                 Process.Start(uri);
 
                 Console.WriteLine("Podaj klucz do autoryzacji Twittera");
 
-
                 return Console.ReadLine();
-            });
+            }));
+
+            publisher.PublisTwitter();
+
+
+            // publisher.Publish();
+
+        
 
             Console.WriteLine("Opublikowano post");
         }

@@ -14,32 +14,50 @@ namespace AutoBlogProgramistyPosts.PostCreators
     {
         public string PostLink { get; set; }
 
-        public NewsPostTwitterCreator(string fileName) : base(fileName)
+        private TwitterService twitterService;
+
+        private Func<string, string> verifierMethod;
+
+        public NewsPostTwitterCreator(string fileName, Func<string, string> verifierMethod) : base(fileName)
         {
-           
+           this.verifierMethod = verifierMethod;
+           this.twitterService = new TwitterService(ConfigurationManager.AppSettings["TwitterKey"], ConfigurationManager.AppSettings["TwitterSecret"]);
         }
 
-        public void SendTweet(Func<string,string> verifierMethod)
+        public void SendTweet()
         {
-            TwitterService service = new TwitterService(ConfigurationManager.AppSettings["TwitterKey"], ConfigurationManager.AppSettings["TwitterSecret"]);
+            OAuthAccessToken access = GetOAuthAccessToken();
 
-            //OAuthRequestToken requestToken = service.GetRequestToken();
+            this.twitterService.AuthenticateWith(access.Token, access.TokenSecret);
 
-            //Uri uri = service.GetAuthorizationUri(requestToken);
+            this.twitterService.SendTweet(new SendTweetOptions { Status = "TestAutoBlogProgramisty" + PostLink });
+        }
 
-            //OAuthAccessToken access = service.GetAccessToken(requestToken, verifierMethod.Invoke(uri.ToString()));
+        private OAuthAccessToken GetOAuthAccessToken()
+        {
+            if (ConfigurationManager.AppSettings["TwitterScreenName"] == null ||
+                    ConfigurationManager.AppSettings["TwitterUserId"] == null || 
+                        ConfigurationManager.AppSettings["TwitterToken"] == null || 
+                            ConfigurationManager.AppSettings["TwitterTokenSecret"] == null)
+            {
+                OAuthRequestToken requestToken = this.twitterService.GetRequestToken();
 
-            var access = new OAuthAccessToken
+                Uri uri = this.twitterService.GetAuthorizationUri(requestToken);
+
+                OAuthAccessToken access = this.twitterService.GetAccessToken(requestToken, verifierMethod.Invoke(uri.ToString()));
+
+                // TODO Zapisywanie do app settings 
+
+                return access;
+            }
+
+            return new OAuthAccessToken
             {
                 ScreenName = ConfigurationManager.AppSettings["TwitterScreenName"],
                 UserId = int.Parse(ConfigurationManager.AppSettings["TwitterUserId"]),
                 Token = ConfigurationManager.AppSettings["TwitterToken"],
                 TokenSecret = ConfigurationManager.AppSettings["TwitterTokenSecret"]
             };
-
-            service.AuthenticateWith(access.Token, access.TokenSecret);
-
-            service.SendTweet(new SendTweetOptions { Status = "TestAutoBlogProgramisty" + PostLink });
         }
     }
 }
