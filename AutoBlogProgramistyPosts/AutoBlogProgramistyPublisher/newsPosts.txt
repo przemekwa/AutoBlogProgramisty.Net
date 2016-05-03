@@ -1,7 +1,7 @@
-﻿Automat działa prawie idealnie : ) Teraz czas na automatyczną wysyłkę powiadomień na Twitera i Facebook-a więc zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
-Jak dobrze testować swoje oprogramowanie?[testowanie2][oprogramowanie3]
-http://simpleprogrammer.com/2016/04/20/developers-poor-testers-can-done/
-Ciekawy sposób na wyrównanie płac w firmie. Testowy w google : ) [wynagrodzenie3][firma3]
-http://blogs.wsj.com/digits/2015/07/21/ex-google-employee-exposes-unequal-pay-with-spreadsheet/
-Net Repair Tool[net Repair Tool3] - przyznam, że nie słyszałem o tym. Myślę, że warto wiedzieć, że coś takiego istnieje.
-https://blogs.msdn.microsoft.com/dotnet/2014/04/28/introducing-the-microsoft-net-framework-repair-tool/
+﻿Już po grillowaniu, teraz czas na jakieś konkrety zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
+Przyszłość[przyszłość] .NET-a[.NET] maluje się jasnych barwach
+http://developer.telerik.com/featured/the-net-of-tomorrow/
+Co to znaczy pisać dobre oprogramowanie[oprogramowanie]?
+http://engineering.theladders.com/2016/04/26/what-is-a-good-program/
+Propozycja narzędzi[narzędzia] do ułatwienia pracy WebDevelopera[Web][Developer]
+http://www.codeproject.com/Articles/1096068/Tools-which-will-make-web-developers-life-easier
