@@ -21,7 +21,7 @@ namespace AutoBlogProgramistyPublisher
 
             var publisher = new Publisher(new NewsPostCreator(args[0]));
 
-            //publisher.Publish();
+            publisher.Publish();
 
             publisher.PublisTwitter(() =>
             {

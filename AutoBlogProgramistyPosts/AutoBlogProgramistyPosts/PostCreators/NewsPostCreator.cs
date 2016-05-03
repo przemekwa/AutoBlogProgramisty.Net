@@ -9,7 +9,7 @@ using static AutoBlogProgramistyPosts.Constants;
 
 namespace AutoBlogProgramistyPosts
 {
-    public class NewsPostCreator : IPostCreator
+    public class NewsPostCreator : NewBaseCreator, IPostCreator
     {
         public const string HTMLNEWSBODYTEMPLATE = "<ul><li><h3>{0}</h3></li></ul>{1}<blockquote><a href=\"{2}\">{2}</a></blockquote>";
         public const string IMAGEID = "613";
@@ -18,14 +18,10 @@ namespace AutoBlogProgramistyPosts
         public const string POSTTYPE = "post";
         public const string TAGSPATTERN = "\\[[^\\[\\].+]*\\]";
 
-        public FileInfo FileInfo { get; set; }
-
         public List<Term> Tags { get; set; } 
                
-        public NewsPostCreator(string fileName)
-        {
-            this.FileInfo = new FileInfo(fileName);
-
+        public NewsPostCreator(string fileName) :base(fileName)
+        { 
             this.Tags = new List<Term> {
                     new Term
                     {
@@ -104,26 +100,5 @@ namespace AutoBlogProgramistyPosts
             }
         }
 
-        public NewsDto GetNewsFromFile()
-        {
-            var lines = File.ReadAllLines(this.FileInfo.FullName);
-
-            var result = new NewsDto
-            {
-                Header = lines[0],
-                UrlCollection = new List<LinksDto>()
-            };
-
-            for (int i = 1; i < lines.Length ; i = i + 2)
-            {
-                result.UrlCollection.Add(new LinksDto
-                {
-                    Header = lines[i],
-                    Url = lines[i + 1]
-                });
-            }
-
-            return result;
-        }
     }
 }

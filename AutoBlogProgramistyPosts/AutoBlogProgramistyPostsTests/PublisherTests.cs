@@ -59,7 +59,7 @@ namespace AutoBlogProgramistyPostsTests
         {
             using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPosts\bin\Debug\AutoBlogProgramistyPosts.dll.config"))
             {
-                var publisher = new Publisher(new NewsPostCreator(this.FileName));
+                var publisher = new Publisher(new NewsPostCreator(this.FileName) );
 
                 Assert.AreNotEqual(string.Empty, publisher.Publish());
             }

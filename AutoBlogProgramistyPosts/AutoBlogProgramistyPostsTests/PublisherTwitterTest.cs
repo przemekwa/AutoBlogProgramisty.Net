@@ -17,7 +17,7 @@ namespace AutoBlogProgramistyPostsTests
             {
                 var test = new Publisher(null);
 
-                test.PublisTwitter();
+                test.PublisTwitter(null);
 
                 Assert.Pass();
             }

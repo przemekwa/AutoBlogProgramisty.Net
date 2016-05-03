@@ -63,7 +63,10 @@
     <Compile Include="IPostCreator.cs" />
     <Compile Include="Dto\UrlDto.cs" />
     <Compile Include="Dto\NewsDto.cs" />
+    <Compile Include="IPostTwitterCreator.cs" />
+    <Compile Include="PostCreators\NewBaseCreator.cs" />
     <Compile Include="PostCreators\NewsPostCreator.cs" />
+    <Compile Include="PostCreators\NewsPostTwitterCreator.cs" />
     <Compile Include="Publisher .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using TweetSharp;
 using WordPressSharp;
 using WordPressSharp.Models;
@@ -14,40 +15,47 @@ namespace AutoBlogProgramistyPosts
     {
         public readonly WordPressClient wordPressClient;
 
-        public readonly IPostCreator PostCreator;
+        public IPostCreator PostCreator { get; set; }
+
+        public IPostTwitterCreator PostTwitterCreator { get; set; }
+
+        private int postId;
 
         private Term[] TermTags;
 
-        public Publisher(IPostCreator postCreator)
+        public Publisher(IPostCreator postCreator, IPostTwitterCreator postTwitterCreator = null)
         {
-            this.wordPressClient = new WordPressClient();
-
             this.PostCreator = postCreator;
-
-            this.TermTags = wordPressClient.GetTerms(TAGTAXONOMY, null);
+            this.PostTwitterCreator = postTwitterCreator;
+            this.wordPressClient = new WordPressClient();
         }
 
-        public string Publish()
+        public int Publish()
         {
+            this.TermTags = wordPressClient.GetTerms(TAGTAXONOMY, null);
+
             using (wordPressClient)
             {
                 var post = this.PostCreator.GetPost();
 
                 post.Terms = this.UpdateTags(post.Terms).ToArray();
 
-                return wordPressClient.NewPost(post);
+                this.postId = int.Parse(wordPressClient.NewPost(post));
+
+                return postId;
             }
         }
 
         public void PublisTwitter(Func<string> verifierMethod)
         {
-            TwitterService service = new TwitterService(ConfigurationManager.AppSettings["TwitterKey"], ConfigurationManager.AppSettings["TwitterSecret"]);
-            OAuthRequestToken requestToken = service.GetRequestToken();
-            Uri uri = service.GetAuthorizationUri(requestToken);
-            Process.Start(uri.ToString());
-            OAuthAccessToken access = service.GetAccessToken(requestToken, verifierMethod.Invoke());
-            service.AuthenticateWith(access.Token, access.TokenSecret);
-            var ts = service.SendTweet(new SendTweetOptions { Status = "TestAutoBlogProgramisty" });
+            using (wordPressClient)
+            {
+                var newsPost = wordPressClient.GetPost(this.postId);
+
+                this.PostTwitterCreator.PostLink = newsPost.Link;
+            }
+              
+           this.PostTwitterCreator.SendTweet(verifierMethod);
         }
 
         private IEnumerable<Term> UpdateTags(Term[] postTags)
