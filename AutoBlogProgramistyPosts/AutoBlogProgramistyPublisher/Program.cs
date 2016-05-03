@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using AutoBlogProgramistyPosts.PostCreators;
 
 namespace AutoBlogProgramistyPublisher
 {
@@ -20,7 +21,7 @@ namespace AutoBlogProgramistyPublisher
 
             Console.WriteLine("Rozpoczęcie publikowania postu na blogu");
 
-            var publisher = new Publisher(new NewsPostCreator(args[0]));
+            var publisher = new Publisher(new NewsPostCreator(args[0]), new NewsPostTwitterCreator(args[0]));
 
             // publisher.Publish();
 

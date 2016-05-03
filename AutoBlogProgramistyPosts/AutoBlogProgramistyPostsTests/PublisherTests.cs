@@ -57,7 +57,7 @@ namespace AutoBlogProgramistyPostsTests
         //[Test]
         public void Publish_News_Post_From_File_Test()
         {
-            using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPosts\bin\Debug\AutoBlogProgramistyPosts.dll.config"))
+            using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPublisher\App.config"))
             {
                 var publisher = new Publisher(new NewsPostCreator(this.FileName) );
 
@@ -68,10 +68,10 @@ namespace AutoBlogProgramistyPostsTests
         //[Test]
         public void Get_Posts_Test()
         {
-            using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPosts\bin\Debug\AutoBlogProgramistyPosts.dll.config"))
+            using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPublisher\App.config"))
             {
                 var awp = new Publisher(new NewsPostCreator("a"));
-                
+
             }
         }
     }

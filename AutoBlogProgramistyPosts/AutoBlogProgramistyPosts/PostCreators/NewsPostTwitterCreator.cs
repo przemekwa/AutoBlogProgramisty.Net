@@ -10,7 +10,7 @@ using TweetSharp;
 
 namespace AutoBlogProgramistyPosts.PostCreators
 {
-    class NewsPostTwitterCreator : NewBaseCreator, IPostTwitterCreator
+    public class NewsPostTwitterCreator : NewBaseCreator, IPostTwitterCreator
     {
         public string PostLink { get; set; }
 
@@ -23,13 +23,23 @@ namespace AutoBlogProgramistyPosts.PostCreators
         {
             TwitterService service = new TwitterService(ConfigurationManager.AppSettings["TwitterKey"], ConfigurationManager.AppSettings["TwitterSecret"]);
 
-            OAuthRequestToken requestToken = service.GetRequestToken();
+            //OAuthRequestToken requestToken = service.GetRequestToken();
 
-            Uri uri = service.GetAuthorizationUri(requestToken);
-          
-            OAuthAccessToken access = service.GetAccessToken(requestToken, verifierMethod.Invoke(uri.ToString()));
+            //Uri uri = service.GetAuthorizationUri(requestToken);
+
+            //OAuthAccessToken access = service.GetAccessToken(requestToken, verifierMethod.Invoke(uri.ToString()));
+
+            var access = new OAuthAccessToken
+            {
+                ScreenName = ConfigurationManager.AppSettings["TwitterScreenName"],
+                UserId = int.Parse(ConfigurationManager.AppSettings["TwitterUserId"]),
+                Token = ConfigurationManager.AppSettings["TwitterToken"],
+                TokenSecret = ConfigurationManager.AppSettings["TwitterTokenSecret"]
+            };
+
             service.AuthenticateWith(access.Token, access.TokenSecret);
-            var ts = service.SendTweet(new SendTweetOptions { Status = "TestAutoBlogProgramisty" + PostLink });
+
+            service.SendTweet(new SendTweetOptions { Status = "TestAutoBlogProgramisty" + PostLink });
         }
     }
 }

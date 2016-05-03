@@ -13,7 +13,7 @@ namespace AutoBlogProgramistyPostsTests
         [Test]
         public void Test()
         {
-            using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPosts\bin\Debug\AutoBlogProgramistyPosts.dll.config"))
+            using (AppConfig.Change(@"J:\Dropbox\Dropbox\c#\Projects\AutoBlogProgramisty.Net\AutoBlogProgramistyPosts\AutoBlogProgramistyPublisher\App.config"))
             {
                 var test = new Publisher(null);
 

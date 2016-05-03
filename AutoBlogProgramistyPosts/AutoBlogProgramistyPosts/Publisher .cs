@@ -50,9 +50,9 @@ namespace AutoBlogProgramistyPosts
         {
             using (wordPressClient)
             {
-                var newsPost = wordPressClient.GetPost(this.postId);
+              //  var newsPost = wordPressClient.GetPost(this.postId);
 
-                this.PostTwitterCreator.PostLink = newsPost.Link;
+                //this.PostTwitterCreator.PostLink = newsPost.Link;
             }
               
            this.PostTwitterCreator.SendTweet(verifierMethod);
