@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
+using TweetSharp;
 using WordPressSharp;
 using WordPressSharp.Models;
 using static AutoBlogProgramistyPosts.Constants;
@@ -33,6 +37,17 @@ namespace AutoBlogProgramistyPosts
 
                 return wordPressClient.NewPost(post);
             }
+        }
+
+        public void PublisTwitter(Func<string> verifierMethod)
+        {
+            TwitterService service = new TwitterService(ConfigurationManager.AppSettings["TwitterKey"], ConfigurationManager.AppSettings["TwitterSecret"]);
+            OAuthRequestToken requestToken = service.GetRequestToken();
+            Uri uri = service.GetAuthorizationUri(requestToken);
+            Process.Start(uri.ToString());
+            OAuthAccessToken access = service.GetAccessToken(requestToken, verifierMethod.Invoke());
+            service.AuthenticateWith(access.Token, access.TokenSecret);
+            var ts = service.SendTweet(new SendTweetOptions { Status = "TestAutoBlogProgramisty" });
         }
 
         private IEnumerable<Term> UpdateTags(Term[] postTags)
