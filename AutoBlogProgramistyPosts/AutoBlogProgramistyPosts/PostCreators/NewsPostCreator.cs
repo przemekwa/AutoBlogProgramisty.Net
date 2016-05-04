@@ -17,7 +17,7 @@ namespace AutoBlogProgramistyPosts
         public const string POSTSTATUS = "publish";
         public const string AUTHOR = "1";
         public const string POSTTYPE = "post";
-        public const string TAGSPATTERN = "\\[[^\\[\\].+]*\\]";
+        public const string TAGSPATTERN = "\\[[^\\[\\]]*\\]";
 
         public List<Term> Tags { get; set; } 
                

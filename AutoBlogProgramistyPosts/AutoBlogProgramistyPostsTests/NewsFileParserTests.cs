@@ -28,7 +28,7 @@ namespace AutoBlogProgramistyPostsTests
                 "https://jaxenter.com/costs-and-benefits-of-comments-124166.html",
                 "SOLID na potocznych[dwa] przykładach[jeden]",
                 "http://www.daedtech.com/solid-principles-real-life",
-                "Co by tu się pouczyć nowego w 2016 roku?",
+                "Co by tu się pouczyć[.NET] nowego w 2016 roku?",
                 "http://www.infoworld.com/article/3038679/application-development/the-13-developer-skills-you-need-to-master-now.html",
                 "Co by tu się pouczyć nowego w 2016 roku?",
                 "http://www.infoworld.com/article/3038679/application-development/the-13-developer-skills-you-need-to-master-now.html"
@@ -81,12 +81,20 @@ namespace AutoBlogProgramistyPostsTests
         public void Parse_2_Tags_From_File()
         {
             var fileParser = new NewsPostCreator(this.FileName);
-
             fileParser.AddTags(this.FileContent[3]);
-
 
             Assert.IsTrue(fileParser.Tags.Any(t => t.Name.Equals("dwa") && t.Taxonomy == TAGTAXONOMY));
             Assert.IsTrue(fileParser.Tags.Any(t => t.Name.Equals("jeden") && t.Taxonomy == TAGTAXONOMY));
+        }
+
+        [Test]
+        public void Parse_1_Tags_With_Dot()
+        {
+            var fileParser = new NewsPostCreator(this.FileName);
+            fileParser.AddTags(this.FileContent[5]);
+
+            Assert.IsTrue(fileParser.Tags.Any(t => t.Name.Equals(".NET") && t.Taxonomy == TAGTAXONOMY));
+      
         }
     }
 }

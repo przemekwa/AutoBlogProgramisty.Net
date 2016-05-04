@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoBlogProgramistyPosts.Dto;
 using TweetSharp;
-using WordPressSharp.Models;
 
 namespace AutoBlogProgramistyPosts.PostCreators
 {
@@ -18,12 +11,12 @@ namespace AutoBlogProgramistyPosts.PostCreators
 
         private Func<string, string> verifierMethod;
 
-        private IPostCreator postCreator;
-
         public TwitterEngine(Func<string, string> verifierMethod)
         {
             this.verifierMethod = verifierMethod;
-            this.twitterService = new TwitterService(ConfigurationManager.AppSettings["TwitterKey"], ConfigurationManager.AppSettings["TwitterSecret"]);
+            this.twitterService = new TwitterService(
+                ConfigurationManager.AppSettings["TwitterKey"], 
+                ConfigurationManager.AppSettings["TwitterSecret"]);
         }
 
         public void SendTweet(string msg)
@@ -65,9 +58,9 @@ namespace AutoBlogProgramistyPosts.PostCreators
        
         public PostDto PublishPost(IPostCreator postCreator)
         {
-            var msg = this.postCreator.GetPost();
-            this.SendTweet(msg.Link);
-            return null;
+            var post = postCreator.GetPost();
+            this.SendTweet(post.Link);
+            return post;
         }
 
         public PostDto PublishPost(PostDto postDto)
