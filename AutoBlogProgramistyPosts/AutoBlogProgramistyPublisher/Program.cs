@@ -25,7 +25,7 @@ namespace AutoBlogProgramistyPublisher
 
             var publisher = new Publisher(new WordPressEngine());
 
-            var postFromWordPress = publisher.Publish(new NewsPostCreator(args[0]));
+            var postFromWordPress = publisher.Publish(new WordPresNewsPostCreator(args[0]));
 
             Console.WriteLine("Obublikowano na WordPress-ie");
 

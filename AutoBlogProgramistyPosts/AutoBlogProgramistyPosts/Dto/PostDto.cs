@@ -26,6 +26,8 @@ namespace AutoBlogProgramistyPosts.Dto
         //TODO pozybyć się odwołań do wordpress-a
         public Term[] Terms { get; set; }
 
+        public string ShortMsg { get; set; }
+
         public string Link { get; set; }
     }
 }

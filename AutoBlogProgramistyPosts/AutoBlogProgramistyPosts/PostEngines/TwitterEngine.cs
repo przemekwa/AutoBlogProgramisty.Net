@@ -39,9 +39,12 @@ namespace AutoBlogProgramistyPosts.PostCreators
 
                 Uri uri = this.twitterService.GetAuthorizationUri(requestToken);
 
-                OAuthAccessToken access = this.twitterService.GetAccessToken(requestToken, verifierMethod.Invoke(uri.ToString()));
+                var access = this.twitterService.GetAccessToken(requestToken, verifierMethod.Invoke(uri.ToString()));
 
-                // TODO Zapisywanie do app settings 
+                ConfigurationManager.AppSettings.Add("TwitterScreenName", access.ScreenName);
+                ConfigurationManager.AppSettings.Add("TwitterUserId", access.UserId.ToString());
+                ConfigurationManager.AppSettings.Add("TwitterToken", access.Token);
+                ConfigurationManager.AppSettings.Add("TwitterTokenSecret", access.TokenSecret);
 
                 return access;
             }
@@ -59,13 +62,16 @@ namespace AutoBlogProgramistyPosts.PostCreators
         public PostDto PublishPost(IPostCreator postCreator)
         {
             var post = postCreator.GetPost();
+
             this.SendTweet(post.Link);
+
             return post;
         }
 
         public PostDto PublishPost(PostDto postDto)
         {
-            this.SendTweet(postDto.Link);
+            this.SendTweet($"[BLOG] {postDto.ShortMsg} {postDto.Link}" );
+
             return postDto;
         }
     }

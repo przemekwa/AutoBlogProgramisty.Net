@@ -66,7 +66,8 @@
     <Compile Include="Dto\NewsDto.cs" />
     <Compile Include="IPostEngine.cs" />
     <Compile Include="PostCreators\NewsBaseCreator.cs" />
-    <Compile Include="PostCreators\NewsPostCreator.cs" />
+    <Compile Include="PostCreators\TwitterNewsPostCreator.cs" />
+    <Compile Include="PostCreators\WordPresNewsPostCreator.cs" />
     <Compile Include="PostEngines\TwitterEngine.cs" />
     <Compile Include="PostEngines\WordPressEngine.cs" />
     <Compile Include="Publisher .cs" />

@@ -10,7 +10,7 @@ using static AutoBlogProgramistyPosts.Constants;
 
 namespace AutoBlogProgramistyPosts
 {
-    public class NewsPostCreator : NewsBaseCreator, IPostCreator
+    public class WordPresNewsPostCreator : NewsBaseCreator, IPostCreator
     {
         public const string HTMLNEWSBODYTEMPLATE = "<ul><li><h3>{0}</h3></li></ul>{1}<blockquote><a href=\"{2}\">{2}</a></blockquote>";
         public const string IMAGEID = "613";
@@ -21,7 +21,7 @@ namespace AutoBlogProgramistyPosts
 
         public List<Term> Tags { get; set; } 
                
-        public NewsPostCreator(string fileName) :base(fileName)
+        public WordPresNewsPostCreator(string fileName) :base(fileName)
         { 
             this.Tags = new List<Term> {
                     new Term

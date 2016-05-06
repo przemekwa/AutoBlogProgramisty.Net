@@ -46,7 +46,7 @@ namespace AutoBlogProgramistyPostsTests
         [Test]
         public void Get_News_Post_From_File()
         {
-            var fileParser = new NewsPostCreator(this.FileName);
+            var fileParser = new WordPresNewsPostCreator(this.FileName);
           
             var result = fileParser.GetNewsFromFile();
 
@@ -60,7 +60,7 @@ namespace AutoBlogProgramistyPostsTests
         [Test]
         public void Get_Html_Body()
         {
-            var fileParser = new NewsPostCreator(this.FileName);
+            var fileParser = new WordPresNewsPostCreator(this.FileName);
 
             var result = fileParser.GetHtmlBody(fileParser.GetNewsFromFile());
 
@@ -70,7 +70,7 @@ namespace AutoBlogProgramistyPostsTests
         [Test]
         public void Parse_1_Tag_From_File()
         {
-            var fileParser = new NewsPostCreator(this.FileName);
+            var fileParser = new WordPresNewsPostCreator(this.FileName);
 
             fileParser.AddTags(this.FileContent[1]);
 
@@ -80,7 +80,7 @@ namespace AutoBlogProgramistyPostsTests
         [Test]
         public void Parse_2_Tags_From_File()
         {
-            var fileParser = new NewsPostCreator(this.FileName);
+            var fileParser = new WordPresNewsPostCreator(this.FileName);
             fileParser.AddTags(this.FileContent[3]);
 
             Assert.IsTrue(fileParser.Tags.Any(t => t.Name.Equals("dwa") && t.Taxonomy == TAGTAXONOMY));
@@ -90,7 +90,7 @@ namespace AutoBlogProgramistyPostsTests
         [Test]
         public void Parse_1_Tags_With_Dot()
         {
-            var fileParser = new NewsPostCreator(this.FileName);
+            var fileParser = new WordPresNewsPostCreator(this.FileName);
             fileParser.AddTags(this.FileContent[5]);
 
             Assert.IsTrue(fileParser.Tags.Any(t => t.Name.Equals(".NET") && t.Taxonomy == TAGTAXONOMY));
