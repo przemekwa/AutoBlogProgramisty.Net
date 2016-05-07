@@ -3,7 +3,7 @@ using System.Configuration;
 using AutoBlogProgramistyPosts.Dto;
 using TweetSharp;
 
-namespace AutoBlogProgramistyPosts.PostCreators
+namespace AutoBlogProgramistyPosts.PostEngines
 {
     public class TwitterEngine : IPostEngine
     {

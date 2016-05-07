@@ -23,28 +23,15 @@ namespace AutoBlogProgramistyPublisher
 
             Console.WriteLine("Rozpoczęcie publikowania postu na WordPress-ie");
 
-            var publisher = new Publisher(new WordPressEngine());
-
-            var postFromWordPress = publisher.Publish(new WordPresNewsPostCreator(args[0]));
-
-            Console.WriteLine("Obublikowano na WordPress-ie");
-
-            Console.WriteLine("Rozpoczęcie publikowania postu na Twitter-rze");
-
-            publisher = new Publisher(new TwitterEngine(url =>
+            var newsPublisher = new NewsPublisher(url =>
             {
                 Process.Start(url);
 
                 Console.WriteLine("Podaj klucz do autoryzacji Twittera");
 
                 return Console.ReadLine();
-            }));
+            });
 
-            publisher.Publish(postFromWordPress);
-
-            //publisher.Publish(new PostDto { Link = "dsd" });
-
-            Console.WriteLine("Obublikowano na Twitter-rze");
 
             Console.ReadKey();
         }

@@ -70,7 +70,7 @@
     <Compile Include="PostCreators\WordPresNewsPostCreator.cs" />
     <Compile Include="PostEngines\TwitterEngine.cs" />
     <Compile Include="PostEngines\WordPressEngine.cs" />
-    <Compile Include="Publisher .cs" />
+    <Compile Include="NewsPublisher .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
