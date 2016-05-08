@@ -68,11 +68,9 @@ namespace AutoBlogProgramistyPosts.PostEngines
             return post;
         }
 
-        public PostDto PublishPost(PostDto postDto)
+        public void PublishPost(PostDto postDto)
         {
             this.SendTweet($"[BLOG] {postDto.ShortMsg} {postDto.Link}" );
-
-            return postDto;
         }
     }
 }

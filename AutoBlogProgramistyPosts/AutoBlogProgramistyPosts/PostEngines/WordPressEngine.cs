@@ -84,12 +84,10 @@ namespace AutoBlogProgramistyPosts.PostEngines
             return this.PublishPost();
         }
 
-        public PostDto PublishPost(PostDto postDto)
+        public void PublishPost(PostDto postDto)
         {
             this.post = postDto;
             this.PublishPost();
-
-            return this.post;
         }
     }
 }

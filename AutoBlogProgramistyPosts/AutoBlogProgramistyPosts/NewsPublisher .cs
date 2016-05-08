@@ -30,6 +30,7 @@ namespace AutoBlogProgramistyPosts
         {
             var post = this.WordPresspostEngine.PublishPost(new WordPressNewsPostCreator(fileName));
 
+            this.TwitterpostEngine.PublishPost(post);
         }
 
     }

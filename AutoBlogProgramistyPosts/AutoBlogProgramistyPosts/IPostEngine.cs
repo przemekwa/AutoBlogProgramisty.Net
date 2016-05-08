@@ -11,6 +11,6 @@ namespace AutoBlogProgramistyPosts
     public interface IPostEngine
     {
         PostDto PublishPost(IPostCreator postCreator);
-        PostDto PublishPost(PostDto postDto);
+        void PublishPost(PostDto postDto);
     }
 }
