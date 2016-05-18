@@ -11,7 +11,7 @@ namespace AutoBlogProgramistyPublisher
         {
             if (!File.Exists(args[0]))
             {
-                throw new Exception("Brak pliku {0} na dysk");
+                throw new Exception("Brak pliku {0} na dysku");
             }
 
             Console.WriteLine("Rozpoczęcie publikowania postu na WordPress-ie");
@@ -25,6 +25,7 @@ namespace AutoBlogProgramistyPublisher
                 return Console.ReadLine();
             });
 
+            newsPublisher.PublishNews(args[0]);
 
             Console.ReadKey();
         }

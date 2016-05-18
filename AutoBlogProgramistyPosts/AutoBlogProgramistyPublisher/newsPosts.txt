@@ -1,7 +1,11 @@
-﻿Już po grillowaniu, teraz czas na jakieś konkrety zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
-Przyszłość[przyszłość] .NET-a[.NET] maluje się jasnych barwach
-http://developer.telerik.com/featured/the-net-of-tomorrow/
-Co to znaczy pisać dobre oprogramowanie[oprogramowanie]?
-http://engineering.theladders.com/2016/04/26/what-is-a-good-program/
-Propozycja narzędzi[narzędzia] do ułatwienia pracy WebDevelopera[Web][Developer]
-http://www.codeproject.com/Articles/1096068/Tools-which-will-make-web-developers-life-easier
+﻿Trochę się nazbierało ciekawych informacji więc zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
+7 błędów w rozwoju swojej karierze[kariera] programisty[programista]
+http://www.infoworld.com/article/3069558/application-development/7-deadly-career-mistakes-developers-make.html
+Deployment Case Study[case study] prosto ze StackOverflow[StackOverflow]
+https://nickcraver.com/blog/2016/05/03/stack-overflow-how-we-do-deployment-2016-edition/
+Klika profesjonalnych[senior] technik[technika] programowania[programowanie] w C#
+http://www.codeproject.com/Articles/1094829/Professional-techniques-for-Csharp-Lecture-Notes-P
+Co każdy młody[junior] programista powinien umieć[rozwój]?
+http://www.techrepublic.com/article/joel-spolsky-the-three-skills-every-software-developer-should-learn/
+Zmiany w sposobie instalacji[instalacja] .NET-a[.NET]
+https://blogs.msdn.microsoft.com/dotnet/2016/05/02/introduction-to-net-framework-compatibility/
