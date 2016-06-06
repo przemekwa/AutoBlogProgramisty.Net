@@ -1,11 +1,11 @@
-﻿Trochę się nazbierało ciekawych informacji więc zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
-7 błędów w rozwoju swojej karierze[kariera] programisty[programista]
-http://www.infoworld.com/article/3069558/application-development/7-deadly-career-mistakes-developers-make.html
-Deployment Case Study[case study] prosto ze StackOverflow[StackOverflow]
-https://nickcraver.com/blog/2016/05/03/stack-overflow-how-we-do-deployment-2016-edition/
-Klika profesjonalnych[senior] technik[technika] programowania[programowanie] w C#
-http://www.codeproject.com/Articles/1094829/Professional-techniques-for-Csharp-Lecture-Notes-P
-Co każdy młody[junior] programista powinien umieć[rozwój]?
-http://www.techrepublic.com/article/joel-spolsky-the-three-skills-every-software-developer-should-learn/
-Zmiany w sposobie instalacji[instalacja] .NET-a[.NET]
-https://blogs.msdn.microsoft.com/dotnet/2016/05/02/introduction-to-net-framework-compatibility/
+﻿I po wakacjach. Ostatnio nie mam weny na pisanie postów, no i sporo wakacyjnych chwil było ale już nadrabiam i oto efekty. Zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskie
+GitHub[github] rządzi - ale dlaczego?
+http://www.daedtech.com/why-is-github-taking-over-the-world/
+Niezły ranking[ranking] gorących technologi[technologia][praca]
+http://www.zdnet.com/article/open-source-jobs-are-hotter-than-ever/
+Jaki język programowania[programowanie] jest najtrudniejszy?
+http://betanews.com/2016/04/04/most-complex-programming-language/
+Błędy[blędy] podczas rekrutowania[rekrutacja] deweloperów
+http://www.acodersjourney.com/2016/05/worst-programming-interview-question-ever/
+15 oznak złego zrozumiana procesu AGILE[agile]
+http://www.infoworld.com/article/3074332/agile-development/15-signs-youre-doing-agile-wrong.html

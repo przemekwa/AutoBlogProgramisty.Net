@@ -70,7 +70,7 @@ namespace AutoBlogProgramistyPosts.PostEngines
 
         public void PublishPost(PostDto postDto)
         {
-            this.SendTweet($"[BLOG] {postDto.ShortMsg} {postDto.Link}" );
+            this.SendTweet($"{postDto.ShortMsg} {postDto.Link}" );
         }
     }
 }

@@ -19,6 +19,8 @@ namespace AutoBlogProgramistyPosts
         {
             var post = this.WordPresspostEngine.PublishPost(new WordPressNewsPostCreator(fileName));
 
+            post.ShortMsg = $"[BLOG] Nowe Newsy Programistyczne - {DateTime.Now.ToString("dd-MM-yyyy")} {post.Link} ";
+
             this.TwitterpostEngine.PublishPost(post);
         }
 
