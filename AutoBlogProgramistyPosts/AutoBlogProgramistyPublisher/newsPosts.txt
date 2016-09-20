@@ -1,11 +1,13 @@
-﻿I po wakacjach. Ostatnio nie mam weny na pisanie postów, no i sporo wakacyjnych chwil było ale już nadrabiam i oto efekty. Zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskie
-GitHub[github] rządzi - ale dlaczego?
-http://www.daedtech.com/why-is-github-taking-over-the-world/
-Niezły ranking[ranking] gorących technologi[technologia][praca]
-http://www.zdnet.com/article/open-source-jobs-are-hotter-than-ever/
-Jaki język programowania[programowanie] jest najtrudniejszy?
-http://betanews.com/2016/04/04/most-complex-programming-language/
-Błędy[blędy] podczas rekrutowania[rekrutacja] deweloperów
-http://www.acodersjourney.com/2016/05/worst-programming-interview-question-ever/
-15 oznak złego zrozumiana procesu AGILE[agile]
-http://www.infoworld.com/article/3074332/agile-development/15-signs-youre-doing-agile-wrong.html
+﻿Lato doszło to return-a. Zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
+Porównanie mechanizmów serializacji w .NET[porównanie][serializacja][.net]
+https://manski.net/2014/10/net-serializers-comparison-chart/
+Obszerny komentarz do wyników porównania serializacji w .NET[komentarz]
+http://maxondev.com/serialization-performance-comparison-c-net-formats-frameworks-xmldatacontractserializer-xmlserializer-binaryformatter-json-newtonsoft-servicestack-text/
+Trochę o .NET Core słowami Scott-a[.net core][scott]
+http://www.hanselman.com/blog/SelfcontainedNETCoreApplications.aspx
+Angular 2 już dostępy...[angular][2]
+http://www.infoworld.com/article/3120314/javascript/googles-angular-2-javascript-framework-finally-arrives.html
+...Swift 3.0 również : )[swift][3]
+https://swift.org/blog/swift-3-0-released/
+Ciekawa analiza Naszych wynagrodzeń[wynagrodzenia][praca]
+https://www.oreilly.com/ideas/highlights-from-2016-european-software-development-salary-survey
