@@ -1,13 +1,11 @@
-﻿Lato doszło to return-a. Zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
-Porównanie mechanizmów serializacji w .NET[porównanie][serializacja][.net]
-https://manski.net/2014/10/net-serializers-comparison-chart/
-Obszerny komentarz do wyników porównania serializacji w .NET[komentarz]
-http://maxondev.com/serialization-performance-comparison-c-net-formats-frameworks-xmldatacontractserializer-xmlserializer-binaryformatter-json-newtonsoft-servicestack-text/
-Trochę o .NET Core słowami Scott-a[.net core][scott]
-http://www.hanselman.com/blog/SelfcontainedNETCoreApplications.aspx
-Angular 2 już dostępy...[angular][2]
-http://www.infoworld.com/article/3120314/javascript/googles-angular-2-javascript-framework-finally-arrives.html
-...Swift 3.0 również : )[swift][3]
-https://swift.org/blog/swift-3-0-released/
-Ciekawa analiza Naszych wynagrodzeń[wynagrodzenia][praca]
-https://www.oreilly.com/ideas/highlights-from-2016-european-software-development-salary-survey
+﻿Zimno i ciemno, w takich warunkach się dobrze programuje. Zapraszam na porcje ciekawych i mocno wyselekcjonowanych newsów z zakresu programowania, komputerów i całej branży deweloperskiej.
+ASP .NET[asp .net] jednym z najszybszych serwerów webowych na LINUX-ie[linux]
+https://www.techempower.com/blog/2016/11/16/framework-benchmarks-round-13/
+Visual Studio[visual studio] na MacOS[macos]
+https://msdn.microsoft.com/en-us/magazine/mt790182.aspx?imm_mid=0eae05&cmp=em-prog-na-na-newsltr_20161119
+Dlaczego GO?[go]
+https://medium.com/@joaoh82/why-go-ef8850dc5f3c#.8opfcdnu0
+Bridge.NET - dojrzały transpiler do C# do JavaScript[java script][c#]
+http://insights.dice.com/2016/10/18/exploring-bridge-net-c-javascript/\
+Dobre praktyki[praktyki] podczas przegladu kodu[przeglad kodu]
+http://www.codeproject.com/Articles/1156196/Code-Review-Checklist
